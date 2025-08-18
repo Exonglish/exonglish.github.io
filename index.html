@@ -2,12 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>My Site</title>
+  <title>MyBrand · Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="grain"></div>
+<div class="grain"></div>
+
 <header class="site-header">
   <div class="nav-shell">
     <a class="brand" href="index.html">MyBrand</a>
@@ -17,7 +18,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn" href="#">Book a Tour</a>
+      <a class="btn" href="contact.html">Book Now</a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
@@ -26,8 +27,50 @@
 </header>
 
 <main class="page">
-  <h1>Hello World!</h1>
-  <p>This is my page content.</p>
+  <section class="card" style="margin: 28px 0; text-align:center; padding:40px 20px">
+    <h1 style="margin:0 0 8px 0; font-size:36px">Soft, Cozy, Playful</h1>
+    <p style="margin:0 0 18px 0; color:var(--muted)">Beige base with pastel accents and a gentle grain for texture.</p>
+    <div class="pill-row" style="justify-content:center">
+      <span class="pill pink">Pink</span>
+      <span class="pill blue">Blue</span>
+      <span class="pill mint">Mint</span>
+    </div>
+  </section>
+
+  <section style="display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin-bottom:28px">
+    <div class="card" style="grid-column:span 4">
+      <h3 style="margin:0 0 6px 0">Service A</h3>
+      <p style="margin:0 0 12px 0; color:var(--muted)">Gentle, modern, and approachable.</p>
+      <a class="btn" href="contact.html" style="background:var(--blue); color:#122">Learn More</a>
+    </div>
+    <div class="card" style="grid-column:span 4">
+      <h3 style="margin:0 0 6px 0">Service B</h3>
+      <p style="margin:0 0 12px 0; color:var(--muted)">Faded pastels with a soft touch.</p>
+      <a class="btn" href="contact.html" style="background:var(--pink); color:#1f1a17">Learn More</a>
+    </div>
+    <div class="card" style="grid-column:span 4">
+      <h3 style="margin:0 0 6px 0">Service C</h3>
+      <p style="margin:0 0 12px 0; color:var(--muted)">Clean layout and friendly shapes.</p>
+      <a class="btn" href="contact.html" style="background:var(--mint); color:#103">Learn More</a>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:28px">
+    <h2 style="margin:0 0 12px 0">Featured Gallery</h2>
+    <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:12px">
+      <div style="grid-column:span 4; aspect-ratio:4/3; border-radius:14px; background:linear-gradient(180deg,#fffdf8,var(--bg-2)); border:1px solid rgba(47,42,38,.08); box-shadow:var(--shadow)"></div>
+      <div style="grid-column:span 4; aspect-ratio:4/3; border-radius:14px; background:linear-gradient(180deg,#eef4ff,var(--blue)); border:1px solid rgba(47,42,38,.08); box-shadow:var(--shadow)"></div>
+      <div style="grid-column:span 4; aspect-ratio:4/3; border-radius:14px; background:linear-gradient(180deg,#ffe7f1,var(--pink)); border:1px solid rgba(47,42,38,.08); box-shadow:var(--shadow)"></div>
+    </div>
+  </section>
+
+  <section class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px">
+    <div>
+      <h2 style="margin:0 0 6px 0">Ready to get started?</h2>
+      <p style="margin:0; color:var(--muted)">Soft colors, friendly UI, and a comfy vibe.</p>
+    </div>
+    <a class="btn" href="contact.html" style="white-space:nowrap; background:var(--blue); color:#122">Contact Us</a>
+  </section>
 </main>
 
 <script src="script.js"></script>

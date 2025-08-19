@@ -2,22 +2,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }} · {{ site.title }}</title>
+  <title>Home · Glitched.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <link href="{{ '/styles.css' | relative_url }}" rel="stylesheet">
+  <meta name="description" content="Modern, sharp template powered by Jekyll">
+  <link href="/styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="grain"></div>
 
 <header class="site-header style-10">
   <div class="nav-shell">
-    <a class="brand" href="{{ '/' | relative_url }}">Glitched.</a>
+    <a class="brand" href="/">Glitched.</a>
     <nav id="nav-links" class="nav-links">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
     </nav>
     <div class="header-right">
       <div class="search-bar style-11">
@@ -39,7 +39,79 @@
 </header>
 
 <main class="page">
-  {{ content }}
+  <!-- Hero section - my intro and stats -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Hi, I'm Bryan</h1>
+    <p class="hero-subtitle">I create digital experiences that matter</p>
+    <p class="hero-description">Full-stack developer and designer passionate about building modern, user-centered solutions that solve real problems.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/about/">Learn More</a>
+      <a class="btn btn-secondary" href="/contact/">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-stats">
+      <!-- My experience stats - using rounded card style -->
+      <div class="stat-item style-8">
+        <span class="stat-number">3+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item style-8">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Projects Completed</span>
+      </div>
+      <div class="stat-item style-8">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My services - what I offer -->
+<section class="grid section">
+  <div class="card span-4">
+    <h3 style="margin:0 0 6px 0">Web Development</h3>
+    <p class="muted" style="margin:0 0 12px 0">Modern, responsive websites and web applications built with the latest technologies.</p>
+    <a class="btn" href="/about/">Learn More</a>
+  </div>
+  <div class="card span-4">
+    <h3 style="margin:0 0 6px 0">UI/UX Design</h3>
+    <p class="muted" style="margin:0 0 12px 0">User-centered design that creates intuitive and engaging digital experiences.</p>
+    <a class="btn" href="/about/">Learn More</a>
+  </div>
+  <div class="card span-4">
+    <h3 style="margin:0 0 6px 0">Consulting</h3>
+    <p class="muted" style="margin:0 0 12px 0">Strategic guidance to help you make the right technology decisions for your project.</p>
+    <a class="btn" href="/contact/">Get Started</a>
+  </div>
+</section>
+
+<!-- Blog section - my latest posts -->
+<section class="section">
+  <h2 style="margin:0 0 12px 0">Latest Thoughts</h2>
+  <p class="muted" style="margin:0 0 12px 0">Insights, tutorials, and updates from my journey in tech.</p>
+  <a class="btn" href="/blog/">Read the Blog</a>
+</section>
+
+<!-- Portfolio gallery - my work examples -->
+<section class="section">
+  <h2 style="margin:0 0 12px 0">Featured Work</h2>
+  <div class="gallery-grid">
+    <!-- Add your own images here; placeholder removed -->
+  </div>
+</section>
+
+<!-- Call to action - get people to contact me -->
+<section class="card section" style="display:flex; align-items:center; justify-content:space-between; gap:16px">
+  <div>
+    <h2 style="margin:0 0 6px 0">Ready to work together?</h2>
+    <p class="muted" style="margin:0">Let's discuss your project and bring your vision to life.</p>
+  </div>
+  <a class="btn" href="/contact/">Start a Project</a>
+</section>
+
 </main>
 
 <footer class="site-footer">
@@ -53,9 +125,9 @@
       <nav class="footer-nav">
         <div class="footer-nav-section">
           <h4>Navigation</h4>
-          <a href="{{ '/about/' | relative_url }}">About</a>
-          <a href="{{ '/blog/' | relative_url }}">Blog</a>
-          <a href="{{ '/contact/' | relative_url }}">Contact</a>
+          <a href="/about/">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
         </div>
         
         <div class="footer-nav-section">
@@ -97,7 +169,7 @@
   </div>
 </footer>
 
-<script src="{{ '/script.js' | relative_url }}"></script>
+<script src="/script.js"></script>
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
   

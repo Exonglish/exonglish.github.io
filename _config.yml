@@ -1,13 +1,17 @@
 # Site settings
-name: MyBrand
-title: MyBrand
+name: Glitched.
+title: Glitched.
 description: Modern, sharp template powered by Jekyll
 url: https://exonglish.github.io
 baseurl: ""
 
 # Build settings
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title/
+permalink: /posts/:title/
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
 
 # Exclude files from processing
 exclude:

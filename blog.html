@@ -3,23 +3,73 @@ layout: default
 title: Blog
 ---
 
-<!-- Page heading: Update copy -->
-<section class="card section">
-  <h1 style="margin:0 0 8px 0">Blog</h1>
-  <p class="muted" style="margin:0">Thoughts, tutorials, and updates.</p>
-</section>
+<div class="blog-container">
+  <div class="blog-header">
+    <h1>Blog</h1>
+    <p>Thoughts, tutorials, and insights on web development, design, and technology</p>
+  </div>
 
-<!-- Post index: Replace with your posts -->
-<section class="post-list" style="margin:28px 0">
-  <!-- Example post item -->
-  <!--
-  <article class="card post-card">
-    <h3 style="margin:0 0 8px 0"><a href="{{ '/blog/2025/01/01/sample-post/' | relative_url }}" style="text-decoration:none; color:inherit">Post Title</a></h3>
-    <p class="post-meta">Month Day, Year · x min read</p>
-    <p class="muted" style="margin:0 0 10px 0">Short description of the post.</p>
-    <div class="tags"><span class="tag">Tag</span></div>
-  </article>
-  -->
-</section>
+  <div class="blog-grid">
+    {% for post in site.posts %}
+    <article class="blog-card{% if post.style %} {{ post.style }}{% endif %}">
+      <div class="blog-card-header">
+        <div class="blog-meta">
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %d, %Y' }}</time>
+          <span class="blog-category">{{ post.category | default: 'General' }}</span>
+        </div>
+        <h2 class="blog-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <p class="blog-excerpt">{{ post.excerpt }}</p>
+      </div>
+      <div class="blog-card-footer">
+        <div class="blog-tags">
+          {% for tag in post.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="blog-sidebar">
+    <div class="sidebar-section">
+      <h3>Categories</h3>
+      <ul class="category-list">
+        {% assign categories = site.posts | map: "category" | uniq | sort %}
+        {% for category in categories %}
+          {% assign count = site.posts | where: "category", category | size %}
+          <li>{{ category }} ({{ count }})</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Popular Tags</h3>
+      <div class="tag-cloud">
+        {% assign all_tags = site.posts | map: "tags" | uniq | sort %}
+        {% for tag in all_tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Subscribe</h3>
+      <p>Get the latest posts delivered to your inbox.</p>
+      <form class="subscribe-form" action="https://formspree.io/f/xrblwqqg" method="POST" id="subscribe-form">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="hidden" name="_subject" value="New Blog Subscription">
+        <input type="hidden" name="_next" value="{{ site.url }}{{ page.url }}?subscribed=true">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <div id="subscribe-success" class="subscribe-success" style="display: none;">
+        <p>✅ Thanks for subscribing! You'll hear from us soon.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 

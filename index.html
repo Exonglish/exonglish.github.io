@@ -3,52 +3,75 @@ layout: default
 title: Home
 ---
 
-<!-- Hero area: Replace heading and intro copy -->
-<section class="card hero center stack-16">
-  <h1 style="margin:0; font-size:36px">Welcome</h1>
-  <p class="muted" style="margin:0">Add your site’s value prop here.</p>
-  <div class="pill-row" style="justify-content:center; display:none"><span class="pill">Sample Pill</span></div>
+<!-- Hero section - my intro and stats -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Hi, I'm Bryan</h1>
+    <p class="hero-subtitle">I create digital experiences that matter</p>
+    <p class="hero-description">Full-stack developer and designer passionate about building modern, user-centered solutions that solve real problems.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ '/about/' | relative_url }}">Learn More</a>
+      <a class="btn btn-secondary" href="{{ '/contact/' | relative_url }}">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-stats">
+      <!-- My experience stats - using rounded card style -->
+      <div class="stat-item style-8">
+        <span class="stat-number">3+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item style-8">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Projects Completed</span>
+      </div>
+      <div class="stat-item style-8">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Three-up features: Replace titles and copy or remove entire section -->
+<!-- My services - what I offer -->
 <section class="grid section">
   <div class="card span-4">
-    <h3 style="margin:0 0 6px 0">Heading One</h3>
-    <p class="muted" style="margin:0 0 12px 0">Brief supporting text.</p>
-    <a class="btn" href="#">Call to action</a>
+    <h3 style="margin:0 0 6px 0">Web Development</h3>
+    <p class="muted" style="margin:0 0 12px 0">Modern, responsive websites and web applications built with the latest technologies.</p>
+    <a class="btn" href="{{ '/about/' | relative_url }}">Learn More</a>
   </div>
   <div class="card span-4">
-    <h3 style="margin:0 0 6px 0">Heading Two</h3>
-    <p class="muted" style="margin:0 0 12px 0">Brief supporting text.</p>
-    <a class="btn" href="#">Call to action</a>
+    <h3 style="margin:0 0 6px 0">UI/UX Design</h3>
+    <p class="muted" style="margin:0 0 12px 0">User-centered design that creates intuitive and engaging digital experiences.</p>
+    <a class="btn" href="{{ '/about/' | relative_url }}">Learn More</a>
   </div>
   <div class="card span-4">
-    <h3 style="margin:0 0 6px 0">Heading Three</h3>
-    <p class="muted" style="margin:0 0 12px 0">Brief supporting text.</p>
-    <a class="btn" href="#">Call to action</a>
+    <h3 style="margin:0 0 6px 0">Consulting</h3>
+    <p class="muted" style="margin:0 0 12px 0">Strategic guidance to help you make the right technology decisions for your project.</p>
+    <a class="btn" href="{{ '/contact/' | relative_url }}">Get Started</a>
   </div>
 </section>
 
-<!-- Blog teaser (optional): Link to your blog index -->
+<!-- Blog section - my latest posts -->
 <section class="section">
-  <h2 style="margin:0 0 12px 0">From the Blog</h2>
-  <p class="muted" style="margin:0 0 12px 0">Share updates and articles.</p>
-  <a class="btn" href="{{ '/blog.html' | relative_url }}">View all posts</a>
+  <h2 style="margin:0 0 12px 0">Latest Thoughts</h2>
+  <p class="muted" style="margin:0 0 12px 0">Insights, tutorials, and updates from my journey in tech.</p>
+  <a class="btn" href="{{ '/blog/' | relative_url }}">Read the Blog</a>
 </section>
 
-<!-- Optional gallery: Replace images or remove this block entirely -->
+<!-- Portfolio gallery - my work examples -->
 <section class="section">
-  <h2 style="margin:0 0 12px 0">Gallery</h2>
+  <h2 style="margin:0 0 12px 0">Featured Work</h2>
   <div class="gallery-grid">
     <!-- Add your own images here; placeholder removed -->
   </div>
 </section>
 
-<!-- CTA: Update copy and link or remove -->
+<!-- Call to action - get people to contact me -->
 <section class="card section" style="display:flex; align-items:center; justify-content:space-between; gap:16px">
   <div>
-    <h2 style="margin:0 0 6px 0">Ready to get started?</h2>
-    <p class="muted" style="margin:0">Add a short supporting line.</p>
+    <h2 style="margin:0 0 6px 0">Ready to work together?</h2>
+    <p class="muted" style="margin:0">Let's discuss your project and bring your vision to life.</p>
   </div>
-  <a class="btn" href="{{ '/contact.html' | relative_url }}">Contact Us</a>
+  <a class="btn" href="{{ '/contact/' | relative_url }}">Start a Project</a>
 </section>

@@ -2,22 +2,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }} · {{ site.title }}</title>
+  <title>Contact · Glitched.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <link href="{{ '/styles.css' | relative_url }}" rel="stylesheet">
+  <meta name="description" content="Modern, sharp template powered by Jekyll">
+  <link href="/styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="grain"></div>
 
 <header class="site-header style-10">
   <div class="nav-shell">
-    <a class="brand" href="{{ '/' | relative_url }}">Glitched.</a>
+    <a class="brand" href="/">Glitched.</a>
     <nav id="nav-links" class="nav-links">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
     </nav>
     <div class="header-right">
       <div class="search-bar style-11">
@@ -39,7 +39,109 @@
 </header>
 
 <main class="page">
-  {{ content }}
+  <div class="contact-container">
+  <!-- Contact page header -->
+  <div class="contact-header">
+    <h1>Let's Create Something Amazing!</h1>
+    <p>Have a project in mind? I'd love to hear about it.</p>
+  </div>
+
+  <!-- Contact form - where people can message me -->
+  <form id="contact-form" action="https://formspree.io/f/xrblwqqg" method="POST" class="contact-form">
+    <div class="form-header">
+      <h3>Drop me a line</h3>
+      <p>I'll get back to you as soon as possible!</p>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-input" required>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-input" required>
+      </div>
+    </div>
+    
+    <div class="form-field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
+    </div>
+    
+    <div class="form-submit">
+      <button type="submit" class="submit-btn">
+        <span class="btn-text">Send Message</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Success popup - shows when message is sent -->
+<div id="success-overlay" class="success-overlay">
+  <div class="success-card">
+    <div class="success-icon"></div>
+    <h2 class="success-title">Message Sent!</h2>
+    <p class="success-text">Thank you for reaching out. I'll get back to you within 24 hours.</p>
+    <button onclick="closeSuccessModal()" class="close-btn">Close</button>
+  </div>
+</div>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const submitButton = form.querySelector('.submit-btn');
+  const originalText = submitButton.querySelector('.btn-text').textContent;
+  
+  // Show loading state
+  submitButton.querySelector('.btn-text').textContent = 'Sending...';
+  submitButton.disabled = true;
+  
+  // Get form data
+  const formData = new FormData(form);
+  
+  // Submit to Formspree
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Show success modal
+      document.getElementById('success-overlay').classList.add('show');
+      form.reset();
+    } else {
+      throw new Error('Something went wrong');
+    }
+  })
+  .catch(error => {
+    // Show error message
+    alert('Sorry, there was an error sending your message. Please try again.');
+  })
+  .finally(() => {
+    // Reset button
+    submitButton.querySelector('.btn-text').textContent = originalText;
+    submitButton.disabled = false;
+  });
+});
+
+function closeSuccessModal() {
+  document.getElementById('success-overlay').classList.remove('show');
+}
+
+// Close modal when clicking outside
+document.getElementById('success-overlay').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeSuccessModal();
+  }
+});
+</script>
+
 </main>
 
 <footer class="site-footer">
@@ -53,9 +155,9 @@
       <nav class="footer-nav">
         <div class="footer-nav-section">
           <h4>Navigation</h4>
-          <a href="{{ '/about/' | relative_url }}">About</a>
-          <a href="{{ '/blog/' | relative_url }}">Blog</a>
-          <a href="{{ '/contact/' | relative_url }}">Contact</a>
+          <a href="/about/">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Contact</a>
         </div>
         
         <div class="footer-nav-section">
@@ -97,7 +199,7 @@
   </div>
 </footer>
 
-<script src="{{ '/script.js' | relative_url }}"></script>
+<script src="/script.js"></script>
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
   

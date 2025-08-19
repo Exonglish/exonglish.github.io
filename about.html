@@ -1,54 +1,21 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>MyBrand · About</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-<div class="grain"></div>
+---
+layout: default
+title: About
+---
 
-<header class="site-header">
-  <div class="nav-shell">
-    <a class="brand" href="index.html">MyBrand</a>
-    <nav id="nav-links" class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="btn" href="contact.html">Book Now</a>
-    </div>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
+<!-- Page heading: Update copy -->
+<section class="card section">
+  <h1 style="margin:0 0 8px 0">About</h1>
+  <p class="muted" style="margin:0">Add a short description of your brand.</p>
+</section>
+
+<!-- Content grid: Replace with your own sections -->
+<section class="grid section">
+  <div class="card span-8">
+    <h3 style="margin:0 0 8px 0">Our Story</h3>
+    <p class="muted" style="margin:0">Write a brief history or mission statement.</p>
   </div>
-</header>
-
-<main class="page">
-  <section class="card" style="margin:28px 0">
-    <h1 style="margin:0 0 8px 0">About Us</h1>
-    <p style="margin:0; color:var(--muted)">We’re building a soft, welcoming brand with beige tones and playful pastels.</p>
-  </section>
-
-  <section style="display:grid; grid-template-columns:repeat(12,1fr); gap:16px">
-    <div class="card" style="grid-column:span 8">
-      <h3 style="margin:0 0 8px 0">Our Story</h3>
-      <p style="margin:0; color:var(--muted)">Started with a love for calm palettes and bubbly UI. We focus on friendly layouts, simple navigation, and cozy visuals.</p>
-    </div>
-    <div class="card" style="grid-column:span 4; text-align:center">
-      <div class="pill-row" style="justify-content:center; margin-bottom:10px">
-        <span class="pill pink">Pink</span>
-        <span class="pill blue">Blue</span>
-        <span class="pill mint">Mint</span>
-      </div>
-      <a class="btn" href="contact.html" style="background:var(--pink); color:#1f1a17">Work With Us</a>
-    </div>
-  </section>
-</main>
-
-<script src="script.js"></script>
-</body>
-</html>
+  <div class="card span-4 center">
+    <a class="btn" href="{{ '/contact.html' | relative_url }}">Work With Us</a>
+  </div>
+</section>

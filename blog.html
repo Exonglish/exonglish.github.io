@@ -1,58 +1,25 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>MyBrand · Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="styles.css" rel="stylesheet">
-  <meta name="description" content="Articles and updates from MyBrand">
-</head>
-<body>
-<div class="grain"></div>
+---
+layout: default
+title: Blog
+---
 
-<header class="site-header">
-  <div class="nav-shell">
-    <a class="brand" href="index.html">MyBrand</a>
-    <nav id="nav-links" class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="btn" href="contact.html">Book Now</a>
-    </div>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  </header>
+<!-- Page heading: Update copy -->
+<section class="card section">
+  <h1 style="margin:0 0 8px 0">Blog</h1>
+  <p class="muted" style="margin:0">Thoughts, tutorials, and updates.</p>
+</section>
 
-<main class="page">
-  <section class="card" style="margin:28px 0">
-    <h1 style="margin:0 0 8px 0">Blog</h1>
-    <p style="margin:0; color:var(--muted)">Thoughts, tutorials, and updates.</p>
-  </section>
-
-  <section class="post-list">
-    <article class="card post-card">
-      <h3 style="margin:0 0 8px 0"><a href="posts/hello-world.html" style="text-decoration:none; color:inherit">Hello, Blog!</a></h3>
-      <p class="post-meta">Sep 1, 2024 · 2 min read</p>
-      <p style="margin:0 0 10px 0; color:var(--muted)">Kicking off with our first post and what to expect.</p>
-      <div class="tags"><span class="tag">Update</span><span class="tag">Meta</span></div>
-    </article>
-
-    <article class="card post-card">
-      <h3 style="margin:0 0 8px 0"><a href="posts/pastel-ui-tips.html" style="text-decoration:none; color:inherit">Pastel UI Tips</a></h3>
-      <p class="post-meta">Sep 5, 2024 · 5 min read</p>
-      <p style="margin:0 0 10px 0; color:var(--muted)">Simple guidelines for soft, cozy, and accessible pastel interfaces.</p>
-      <div class="tags"><span class="tag">Design</span><span class="tag">Guide</span></div>
-    </article>
-  </section>
-</main>
-
-<script src="script.js"></script>
-</body>
-</html>
+<!-- Post index: Replace with your posts -->
+<section class="post-list" style="margin:28px 0">
+  <!-- Example post item -->
+  <!--
+  <article class="card post-card">
+    <h3 style="margin:0 0 8px 0"><a href="{{ '/blog/2025/01/01/sample-post/' | relative_url }}" style="text-decoration:none; color:inherit">Post Title</a></h3>
+    <p class="post-meta">Month Day, Year · x min read</p>
+    <p class="muted" style="margin:0 0 10px 0">Short description of the post.</p>
+    <div class="tags"><span class="tag">Tag</span></div>
+  </article>
+  -->
+</section>
 
 

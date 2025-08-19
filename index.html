@@ -1,115 +1,54 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>MyBrand · Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-<div class="grain"></div>
+---
+layout: default
+title: Home
+---
 
-<header class="site-header">
-  <div class="nav-shell">
-    <a class="brand" href="index.html">MyBrand</a>
-    <nav id="nav-links" class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="btn" href="contact.html">Book Now</a>
-    </div>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
+<!-- Hero area: Replace heading and intro copy -->
+<section class="card hero center stack-16">
+  <h1 style="margin:0; font-size:36px">Welcome</h1>
+  <p class="muted" style="margin:0">Add your site’s value prop here.</p>
+  <div class="pill-row" style="justify-content:center; display:none"><span class="pill">Sample Pill</span></div>
+</section>
+
+<!-- Three-up features: Replace titles and copy or remove entire section -->
+<section class="grid section">
+  <div class="card span-4">
+    <h3 style="margin:0 0 6px 0">Heading One</h3>
+    <p class="muted" style="margin:0 0 12px 0">Brief supporting text.</p>
+    <a class="btn" href="#">Call to action</a>
   </div>
-</header>
-
-<main class="page">
-  <section class="card" style="margin: 28px 0; text-align:center; padding:40px 20px">
-    <h1 style="margin:0 0 8px 0; font-size:36px">Soft, Cozy, Playful</h1>
-    <p style="margin:0 0 18px 0; color:var(--muted)">Beige base with pastel accents and a gentle grain for texture.</p>
-    <div class="pill-row" style="justify-content:center">
-      <span class="pill pink">Pink</span>
-      <span class="pill blue">Blue</span>
-      <span class="pill mint">Mint</span>
-    </div>
-  </section>
-
-  <section style="display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin-bottom:28px">
-    <div class="card" style="grid-column:span 4">
-      <h3 style="margin:0 0 6px 0">Service A</h3>
-      <p style="margin:0 0 12px 0; color:var(--muted)">Gentle, modern, and approachable.</p>
-      <a class="btn" href="contact.html" style="background:var(--blue); color:#122">Learn More</a>
-    </div>
-    <div class="card" style="grid-column:span 4">
-      <h3 style="margin:0 0 6px 0">Service B</h3>
-      <p style="margin:0 0 12px 0; color:var(--muted)">Faded pastels with a soft touch.</p>
-      <a class="btn" href="contact.html" style="background:var(--pink); color:#1f1a17">Learn More</a>
-    </div>
-    <div class="card" style="grid-column:span 4">
-      <h3 style="margin:0 0 6px 0">Service C</h3>
-      <p style="margin:0 0 12px 0; color:var(--muted)">Clean layout and friendly shapes.</p>
-      <a class="btn" href="contact.html" style="background:var(--mint); color:#103">Learn More</a>
-    </div>
-  </section>
-
-  <section class="card" style="margin-bottom:28px">
-    <h2 style="margin:0 0 12px 0">Latest Posts</h2>
-    <div class="post-list">
-      <article class="card post-card" style="padding:16px">
-        <h3 style="margin:0 0 8px 0"><a href="posts/hello-world.html" style="text-decoration:none; color:inherit">Hello, Blog!</a></h3>
-        <p class="post-meta">Sep 1, 2024 · 2 min read</p>
-        <p style="margin:0; color:var(--muted)">Kicking off with our first post and what to expect.</p>
-      </article>
-      <article class="card post-card" style="padding:16px">
-        <h3 style="margin:0 0 8px 0"><a href="posts/pastel-ui-tips.html" style="text-decoration:none; color:inherit">Pastel UI Tips</a></h3>
-        <p class="post-meta">Sep 5, 2024 · 5 min read</p>
-        <p style="margin:0; color:var(--muted)">Simple guidelines for soft, cozy, and accessible pastel interfaces.</p>
-      </article>
-    </div>
-    <div style="margin-top:14px">
-      <a class="btn" href="blog.html" style="background:var(--mint); color:#103">View all posts</a>
-    </div>
-  </section>
-
-<section class="card" style="margin-bottom:28px">
-  <h2 style="margin:0 0 12px 0">Featured Gallery</h2>
-  <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:12px">
-    <img src="https://picsum.photos/400/300?random=1&blur=0"
-         alt="Gallery item 1" width="400" height="300" loading="lazy" decoding="async"
-         style="grid-column:span 4; width:100%; border-radius:14px; object-fit:cover; box-shadow:var(--shadow)">
-    <img src="https://picsum.photos/400/300?random=2&blur=0"
-         alt="Gallery item 2" width="400" height="300" loading="lazy" decoding="async"
-         style="grid-column:span 4; width:100%; border-radius:14px; object-fit:cover; box-shadow:var(--shadow)">
-    <img src="https://picsum.photos/400/300?random=3&blur=0"
-         alt="Gallery item 3" width="400" height="300" loading="lazy" decoding="async"
-         style="grid-column:span 4; width:100%; border-radius:14px; object-fit:cover; box-shadow:var(--shadow)">
-    <img src="https://picsum.photos/400/300?random=4&blur=0"
-         alt="Gallery item 4" width="400" height="300" loading="lazy" decoding="async"
-         style="grid-column:span 4; width:100%; border-radius:14px; object-fit:cover; box-shadow:var(--shadow)">
-    <img src="https://picsum.photos/400/300?random=5&blur=0"
-         alt="Gallery item 5" width="400" height="300" loading="lazy" decoding="async"
-         style="grid-column:span 4; width:100%; border-radius:14px; object-fit:cover; box-shadow:var(--shadow)">
-    <img src="https://picsum.photos/400/300?random=6&blur=0"
-         alt="Gallery item 6" width="400" height="300" loading="lazy" decoding="async"
-         style="grid-column:span 4; width:100%; border-radius:14px; object-fit:cover; box-shadow:var(--shadow)">
+  <div class="card span-4">
+    <h3 style="margin:0 0 6px 0">Heading Two</h3>
+    <p class="muted" style="margin:0 0 12px 0">Brief supporting text.</p>
+    <a class="btn" href="#">Call to action</a>
+  </div>
+  <div class="card span-4">
+    <h3 style="margin:0 0 6px 0">Heading Three</h3>
+    <p class="muted" style="margin:0 0 12px 0">Brief supporting text.</p>
+    <a class="btn" href="#">Call to action</a>
   </div>
 </section>
 
+<!-- Blog teaser (optional): Link to your blog index -->
+<section class="section">
+  <h2 style="margin:0 0 12px 0">From the Blog</h2>
+  <p class="muted" style="margin:0 0 12px 0">Share updates and articles.</p>
+  <a class="btn" href="{{ '/blog.html' | relative_url }}">View all posts</a>
+</section>
 
+<!-- Optional gallery: Replace images or remove this block entirely -->
+<section class="section">
+  <h2 style="margin:0 0 12px 0">Gallery</h2>
+  <div class="gallery-grid">
+    <!-- Add your own images here; placeholder removed -->
+  </div>
+</section>
 
-  <section class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px">
-    <div>
-      <h2 style="margin:0 0 6px 0">Ready to get started?</h2>
-      <p style="margin:0; color:var(--muted)">Soft colors, friendly UI, and a comfy vibe.</p>
-    </div>
-    <a class="btn" href="contact.html" style="white-space:nowrap; background:var(--blue); color:#122">Contact Us</a>
-  </section>
-</main>
-
-<script src="script.js"></script>
-</body>
-</html>
+<!-- CTA: Update copy and link or remove -->
+<section class="card section" style="display:flex; align-items:center; justify-content:space-between; gap:16px">
+  <div>
+    <h2 style="margin:0 0 6px 0">Ready to get started?</h2>
+    <p class="muted" style="margin:0">Add a short supporting line.</p>
+  </div>
+  <a class="btn" href="{{ '/contact.html' | relative_url }}">Contact Us</a>
+</section>

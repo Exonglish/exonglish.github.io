@@ -1,0 +1,19 @@
+# Site settings
+name: MyBrand
+title: MyBrand
+description: Modern, sharp template powered by Jekyll
+url: https://exonglish.github.io
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# GitHub Pages safe mode (no custom plugins)
+safe: true

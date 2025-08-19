@@ -1,3 +1,7 @@
+/*
+  Design tokens
+  - Update brand colors and spacing here
+*/
 :root {
   --bg: #f6f1e7;
   --bg-2: #efe7d9;
@@ -12,21 +16,30 @@
   --mint: #bfead8;
 
   --ring: rgba(47,42,38,.18);
-  --shadow: 0 10px 30px rgba(47,42,38,.08);
-  --radius: 16px;
+  --shadow: none;
+  --radius: 0px;
 }
 
+/* Global resets */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
+/* Base typography */
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
+  /* Sticky footer layout */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* HEADER / NAV */
+/*
+  Header / Navigation
+  - Edit nav links in HTML
+*/
 .site-header {
   position: sticky;
   top: 0;
@@ -85,7 +98,7 @@ body {
 .nav-cta .btn {
   display: inline-block;
   padding: 10px 16px;
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--pink);
   color: var(--primary-ink);
   text-decoration: none;
@@ -103,7 +116,7 @@ body {
   background: transparent;
   width: 38px;
   height: 38px;
-  border-radius: 10px;
+  border-radius: 0;
   position: relative;
 }
 .nav-toggle span {
@@ -127,27 +140,68 @@ body {
     background: rgba(246,241,231,.95);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(47,42,38,.08);
-    border-radius: 18px;
+    border-radius: 0;
     display: none;
     flex-direction: column;
     align-items: stretch;
     padding: 12px;
   }
-  .nav-links a { padding: 10px 12px; border-radius: 12px; }
+  .nav-links a { padding: 10px 12px; border-radius: 0; }
   .nav-shell { padding: 10px 12px; }
   .nav-toggle { display: inline-block; }
   .nav-cta { display: none; }
   .nav-links.show { display: flex; }
 }
 
-/* PAGE LAYOUT */
+/* Page shell */
 .page {
   max-width: 1100px;
   margin: 40px auto;
   padding: 0 16px;
+  /* Expand to push footer to bottom on short pages */
+  flex: 1 0 auto;
 }
 
-/* GRAINY OVERLAY */
+/*
+  Utilities
+  - Use these classes to avoid inline styles
+*/
+.btn { display:inline-block; padding:10px 16px; text-decoration:none; color:var(--text); border:1px solid var(--ring); background: transparent; }
+.muted { color: var(--muted); }
+.stack-16 > * + * { margin-top: 16px; }
+.stack-24 > * + * { margin-top: 24px; }
+.section { margin: 28px 0; }
+.hero { padding: 40px 0; }
+.center { text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+.span-4 { grid-column: span 4; }
+.span-6 { grid-column: span 6; }
+@media (max-width: 800px) {
+  .span-4, .span-6 { grid-column: span 12; }
+}
+
+/* FOOTER */
+.site-footer {
+  margin: 48px 0 0 0;
+  border-top: 1px solid rgba(47,42,38,.12);
+}
+.footer-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.footer-links { display:flex; gap:16px; align-items:center; }
+.footer-links a { color: inherit; text-decoration: none; opacity:.9; }
+.footer-links a:hover { opacity: 1; text-decoration: underline; }
+
+/* Decorative grain overlay (optional) */
 .grain {
   position: fixed;
   inset: -50% -50% -50% -50%;
@@ -167,19 +221,20 @@ body {
   100% { background-position: 0px 0px, 20px -10px, -15px 10px, 220px 440px; }
 }
 
-/* UI CARDS + PILLS */
+/* UI primitives */
 .card {
-  background: linear-gradient(180deg, #fffdf8, var(--bg-2));
-  border: 1px solid rgba(47,42,38,.08);
+  background: transparent;
+  border: 0;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px;
+  box-shadow: none;
+  padding: 0;
 }
+/* Color chips/pills (optional) */
 .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .pill {
   display: inline-block;
   padding: 8px 12px;
-  border-radius: 999px;
+  border-radius: 0;
   font-weight: 700;
   background: #fff;
   border: 1px solid rgba(47,42,38,.08);
@@ -189,7 +244,7 @@ body {
 .blue { background: linear-gradient(180deg, #eef4ff, var(--blue)); }
 .mint { background: linear-gradient(180deg, #effaf6, var(--mint)); }
 
-/* BLOG / POSTS */
+/* Blog / Posts */
 .post-list {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -210,7 +265,7 @@ body {
 .tag {
   display: inline-block;
   padding: 6px 10px;
-  border-radius: 999px;
+  border-radius: 0;
   background: #fff;
   border: 1px solid rgba(47,42,38,.08);
   font-weight: 700;
@@ -229,6 +284,15 @@ body {
 }
 .prose img {
   width: 100%;
-  border-radius: 14px;
+  border-radius: 0;
   box-shadow: var(--shadow);
+}
+
+/* Forms */
+.form-grid { display: grid; gap: 12px; }
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--ring);
+  background: #fff;
 }

@@ -79,10 +79,48 @@ body {
   background: rgba(246,241,231,.08);
 }
 
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+.theme-toggle {
+  position: relative;
+}
+
+.theme-toggle .moon-icon,
+.theme-toggle .sun-icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+/* Show moon icon in light mode, hide sun icon */
+.theme-toggle .moon-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.theme-toggle .sun-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Show sun icon in dark mode, hide moon icon */
+[data-theme="dark"] .theme-toggle .moon-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 .nav-links {
   display: flex;
@@ -2970,20 +3008,39 @@ body {
     height: 40px;
   }
   
-  /* Improve dark mode text readability on mobile */
+  /* Improve text readability on mobile for both themes */
+  .site-header {
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(15px);
+  }
+  
+  .site-header .nav-links a {
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .site-header .brand {
+    color: var(--text);
+    font-weight: 600;
+  }
+  
+  /* Dark mode overrides */
   .site-header[data-theme="dark"] {
-    background: rgba(30, 30, 30, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(15px);
   }
   
   .site-header[data-theme="dark"] .nav-links a {
-    color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
   
   .site-header[data-theme="dark"] .brand {
-    color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
   
   /* Hide footer on mobile devices */
@@ -3013,6 +3070,111 @@ body {
 @keyframes float3 {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
+}
+
+/* Theme Icons Showcase */
+.theme-icons-showcase {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.icon-example {
+  text-align: center;
+  padding: 30px;
+  background: var(--snow-beige);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.icon-example:hover {
+  transform: translateY(-5px);
+}
+
+.icon-example h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: var(--text);
+}
+
+.theme-toggle-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+}
+
+.theme-toggle-demo .theme-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--snow-brown);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(139,115,85,0.2);
+}
+
+.theme-toggle-demo .theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(139,115,85,0.3);
+}
+
+.theme-toggle-demo.current .theme-toggle {
+  border-color: #10b981;
+  background: linear-gradient(135deg, var(--snow-brown), #10b981);
+  color: white;
+}
+
+.showcase-footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 30px;
+  background: var(--snow-beige);
+  border-radius: 20px;
+}
+
+.showcase-footer p {
+  margin: 10px 0;
+  color: var(--text);
+}
+
+/* Dark mode for theme icons showcase */
+[data-theme="dark"] .icon-example {
+  background: #2d1b1b;
+}
+
+[data-theme="dark"] .showcase-footer {
+  background: #2d1b1b;
+}
+
+/* Mobile responsive for theme icons showcase */
+@media (max-width: 768px) {
+  .icons-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .icon-example {
+    padding: 20px;
+  }
+  
+  .showcase-header h1 {
+    font-size: 36px;
+  }
 }
 
 

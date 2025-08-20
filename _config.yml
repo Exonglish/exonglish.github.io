@@ -18,6 +18,8 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - footer-styles.html
 
 # GitHub Pages safe mode (no custom plugins)
 safe: true
+plugins: []

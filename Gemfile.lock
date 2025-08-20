@@ -259,7 +259,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  webrick
+  webrick (~> 1.7)
 
 BUNDLED WITH
    1.17.2

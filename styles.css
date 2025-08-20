@@ -2896,3 +2896,56 @@ body {
   }
 }
 
+/* Mobile responsive fixes for header and footer */
+@media (max-width: 768px) {
+  /* Fix header height and search bar expansion */
+  .site-header {
+    min-height: 60px; /* Prevent header from growing too much */
+    padding: 0.5rem 1rem;
+  }
+  
+  .header-right {
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  /* Fix search bar expansion on mobile */
+  .search-bar.style-11 {
+    width: 40px;
+    transition: width 0.3s ease;
+  }
+  
+  .search-bar.style-11.expanded {
+    width: 150px; /* Smaller expansion on mobile */
+  }
+  
+  .search-bar.style-11 input {
+    font-size: 14px; /* Smaller font on mobile */
+  }
+  
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Improve dark mode text readability on mobile */
+  .site-header[data-theme="dark"] {
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  .site-header[data-theme="dark"] .nav-links a {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .site-header[data-theme="dark"] .brand {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Hide footer on mobile devices */
+  .site-footer {
+    display: none;
+  }
+}

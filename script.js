@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (urlParams.get('subscribed') === 'true' && subscribeSuccess) {
     subscribeSuccess.style.display = 'block';
   }
+  
+
 });
 
 

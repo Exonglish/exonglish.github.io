@@ -10,21 +10,23 @@ title: Search
   </div>
   
   <div class="search-container">
-    <div id="search-input"></div>
+    <div id="search-box">
+      <input type="text" id="search-input" placeholder="Search for posts, projects, or topics..." autofocus>
+      <div id="search-results"></div>
+    </div>
   </div>
 </div>
 
-<!-- Algolia DocSearch v3 -->
-<script type="module">
-  import docsearch from 'https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/esm/index.js';
-  import 'https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.css';
+<!-- Algolia DocSearch -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
+<script type="text/javascript">
   docsearch({
-    container: '#search-input',
-    appId: 'ZKBJX25WUV',
-    indexName: 'Glitched.',
     apiKey: '7cee6234bcbedf60f3046950f9e0c0e9',
-    placeholder: 'Search for posts, projects, or topics...',
+    indexName: 'Glitched.',
+    inputSelector: '#search-input',
+    debug: false,
     searchParameters: {
       filters: 'type:post OR type:page'
     }
@@ -79,55 +81,53 @@ title: Search
   border-color: var(--snow-brown);
 }
 
-/* DocSearch v3 styling */
-.DocSearch-Container {
-  z-index: 1000;
+/* Algolia search results styling */
+.algolia-autocomplete {
+  width: 100%;
 }
 
-.DocSearch-Modal {
-  background: var(--bg);
-  border: 1px solid var(--primary);
+.algolia-autocomplete .aa-input,
+.algolia-autocomplete .aa-hint {
+  width: 100%;
 }
 
-.DocSearch-Input {
-  background: var(--bg-2);
-  color: var(--text);
-  border: 1px solid var(--primary);
-}
-
-.DocSearch-Input:focus {
-  border-color: var(--snow-brown);
-}
-
-.DocSearch-Hit {
-  border-bottom: 1px solid var(--primary);
-}
-
-.DocSearch-Hit:hover {
-  background: var(--bg-2);
-}
-
-.DocSearch-Hit-source {
-  color: var(--snow-brown);
-  font-weight: 600;
-}
-
-.DocSearch-Hit-title {
-  color: var(--text);
-}
-
-.DocSearch-Hit-path {
+.algolia-autocomplete .aa-hint {
   color: var(--muted);
 }
 
-.DocSearch-Button {
-  background: var(--bg-2);
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 100%;
+  background: var(--bg);
   border: 1px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 8px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--primary);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:hover {
+  background: var(--bg-2);
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .aa-suggestion__title {
+  font-weight: 600;
   color: var(--text);
 }
 
-.DocSearch-Button:hover {
-  background: var(--primary);
-  color: var(--primary-ink);
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .aa-suggestion__subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
 }
 </style>

@@ -66,20 +66,142 @@
   </div>
 </div>
 
-<!-- Algolia DocSearch -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-
-<script type="text/javascript">
-  docsearch({
-    apiKey: '7cee6234bcbedf60f3046950f9e0c0e9',
-    indexName: 'Glitched.',
-    inputSelector: '#search-input',
-    debug: false,
-    searchParameters: {
-      filters: 'type:post OR type:page'
+<script>
+// Simple client-side search
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  
+  // Get all posts data from Jekyll
+  const posts = [
+    
+    {
+      title: "ServiceNow Notification Templates",
+      url: "/posts/servicenow-notification-templates/",
+      excerpt: "A collection of modern, professional HTML email templates for ServiceNow notifications. Five different styles inspired by popular brands to make your notifications stand out.",
+      date: "August 21, 2025",
+      category: "ServiceNow",
+      tags: ["servicenow", "email", "templates", "notifications", "html"]
+    },
+    
+    {
+      title: "Microsoft Says Password Expiry Makes You Less Secure",
+      url: "/posts/microsoft-password-expiry-security-myth/",
+      excerpt: "Microsoft&#39;s research reveals that forcing password changes actually makes systems less secure. Here&#39;s why the traditional wisdom about password expiry is wrong.",
+      date: "December 20, 2024",
+      category: "Security",
+      tags: ["security", "passwords", "microsoft", "best-practices", "cybersecurity", "password-policy"]
+    },
+    
+    {
+      title: "Do We Really Need REQs in ServiceNow?",
+      url: "/posts/do-we-really-need-reqs-in-servicenow/",
+      excerpt: "A deep dive into whether ServiceNow Requests (REQs) are always necessary, exploring the pros and cons of skipping them and when it might actually work.",
+      date: "December 19, 2024",
+      category: "ServiceNow",
+      tags: ["servicenow", "req", "ritm", "task", "best-practices", "architecture", "request-management", "servicenow-admin"]
+    }
+    
+  ];
+  
+  // Get all pages data
+  const pages = [
+    
+    
+    {
+      title: "About",
+      url: "/about/",
+      excerpt: "About",
+      category: "Page"
+    },
+    
+    
+    
+    {
+      title: "Blog",
+      url: "/blog/",
+      excerpt: "Blog",
+      category: "Page"
+    },
+    
+    
+    
+    {
+      title: "Contact",
+      url: "/contact/",
+      excerpt: "Contact",
+      category: "Page"
+    },
+    
+    
+    
+    {
+      title: "Home",
+      url: "/",
+      excerpt: "Home",
+      category: "Page"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+  ];
+  
+  const allContent = [...posts, ...pages];
+  
+  function searchContent(query) {
+    if (!query.trim()) {
+      searchResults.innerHTML = '';
+      return;
+    }
+    
+    const searchTerm = query.toLowerCase();
+    const results = allContent.filter(item => {
+      return item.title.toLowerCase().includes(searchTerm) ||
+             item.excerpt.toLowerCase().includes(searchTerm) ||
+             item.category.toLowerCase().includes(searchTerm) ||
+             (item.tags && item.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
+    });
+    
+    displayResults(results);
+  }
+  
+  function displayResults(results) {
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="no-results">No results found. Try a different search term.</div>';
+      return;
+    }
+    
+    const resultsHtml = results.map(item => `
+      <div class="search-result">
+        <h3><a href="${item.url}">${item.title}</a></h3>
+        <p class="result-excerpt">${item.excerpt}</p>
+        <div class="result-meta">
+          <span class="result-category">${item.category}</span>
+          ${item.date ? `<span class="result-date">${item.date}</span>` : ''}
+        </div>
+      </div>
+    `).join('');
+    
+    searchResults.innerHTML = resultsHtml;
+  }
+  
+  // Search as user types
+  searchInput.addEventListener('input', function() {
+    searchContent(this.value);
+  });
+  
+  // Search on Enter key
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      searchContent(this.value);
     }
   });
+});
 </script>
 
 <style>
@@ -124,60 +246,73 @@
   font-size: 16px;
   outline: none;
   transition: border-color 0.2s;
+  margin-bottom: 24px;
 }
 
 #search-input:focus {
   border-color: var(--snow-brown);
 }
 
-/* Algolia search results styling */
-.algolia-autocomplete {
-  width: 100%;
+#search-results {
+  margin-top: 24px;
 }
 
-.algolia-autocomplete .aa-input,
-.algolia-autocomplete .aa-hint {
-  width: 100%;
-}
-
-.algolia-autocomplete .aa-hint {
-  color: var(--muted);
-}
-
-.algolia-autocomplete .aa-dropdown-menu {
-  width: 100%;
-  background: var(--bg);
-  border: 1px solid var(--primary);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin-top: 8px;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-  padding: 12px 16px;
+.search-result {
+  padding: 16px;
   border-bottom: 1px solid var(--primary);
-  cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:hover {
-  background: var(--bg-2);
+.search-result:hover {
+  background: var(--bg);
 }
 
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-  background: var(--primary);
-  color: var(--primary-ink);
+.search-result:last-child {
+  border-bottom: none;
 }
 
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .aa-suggestion__title {
+.search-result h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
   font-weight: 600;
-  color: var(--text);
 }
 
-.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .aa-suggestion__subtitle {
-  font-size: 14px;
+.search-result h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.search-result h3 a:hover {
+  color: var(--snow-brown);
+}
+
+.result-excerpt {
+  margin: 0 0 12px 0;
   color: var(--muted);
-  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.result-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.result-category {
+  background: var(--snow-brown);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.no-results {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  padding: 32px;
 }
 </style>
 

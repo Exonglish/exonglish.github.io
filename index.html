@@ -6,7 +6,7 @@ title: Home
 <!-- Hero section - my intro and stats -->
 <section class="hero-section">
   <div class="hero-content">
-    <h1 class="hero-title">Hi, I'm Bryan.</h1>
+    <h1 class="hero-title lvl0" id="welcome">Hi, I'm Bryan.</h1>
     <p class="hero-subtitle">Welcome.</p>
     <p class="hero-description">This is my corner of the internet where I share the things I build, the lessons I learn, and a few stories along the way. It's equal parts journal, portfolio, and playground for creativity.</p>
     <div class="hero-actions">
@@ -35,7 +35,7 @@ title: Home
 
 <!-- Blog section - my latest posts -->
 <section class="section">
-  <h2 style="margin:0 0 12px 0">My Latest Tinkers</h2>
+  <h2 class="lvl1" id="latest-posts" style="margin:0 0 12px 0">My Latest Tinkers</h2>
   <p class="muted" style="margin:0 0 12px 0">Random thoughts, tech discoveries, and things that caught my attention.</p>
   
   <div class="blog-preview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
@@ -60,17 +60,17 @@ title: Home
 <!-- My services - what I offer -->
 <section class="grid section">
   <div class="card span-4">
-    <h3 style="margin:0 0 6px 0">ServiceNow Projects</h3>
+    <h3 class="lvl2" id="servicenow-projects" style="margin:0 0 6px 0">ServiceNow Projects</h3>
     <p class="muted" style="margin:0 0 12px 0">A collection of design templates, catalog items, tweaks, research, food for thought, and all things ServiceNow.</p>
     <a class="btn" href="{{ '/about/' | relative_url }}">Learn More</a>
   </div>
   <div class="card span-4">
-    <h3 style="margin:0 0 6px 0">IT Projects</h3>
+    <h3 class="lvl2" id="it-projects" style="margin:0 0 6px 0">IT Projects</h3>
     <p class="muted" style="margin:0 0 12px 0">Projects and solutions I developed as an IT Support Specialist - from automation scripts to system improvements.</p>
     <a class="btn" href="{{ '/about/' | relative_url }}">Learn More</a>
   </div>
   <div class="card span-4">
-    <h3 style="margin:0 0 6px 0">Misc</h3>
+    <h3 class="lvl2" id="misc-projects" style="margin:0 0 6px 0">Misc</h3>
     <p class="muted" style="margin:0 0 12px 0">Random thoughts, travel adventures, Boston Terrier shenanigans, and whatever else has sparked my curiosity.</p>
     <a class="btn" href="{{ '/about/' | relative_url }}">Learn More</a>
   </div>
@@ -78,7 +78,7 @@ title: Home
 
 <!-- Portfolio gallery - my work examples -->
 <section class="section">
-  <h2 style="margin:0 0 12px 0">Stuff I'm Proud Of</h2>
+  <h2 class="lvl1" id="portfolio" style="margin:0 0 12px 0">Stuff I'm Proud Of</h2>
   <p class="muted" style="margin:0 0 12px 0">Projects, experiments, and things I'm proud of.</p>
   <a class="btn" href="{{ '/about/' | relative_url }}">See More Work</a>
 </section>
@@ -86,7 +86,7 @@ title: Home
 <!-- Call to action - connect with me -->
 <section class="card section" style="display:flex; align-items:center; justify-content:space-between; gap:16px">
   <div>
-    <h2 style="margin:0 0 6px 0">Want to chat?</h2>
+    <h2 class="lvl1" id="contact-cta" style="margin:0 0 6px 0">Want to chat?</h2>
     <p class="muted" style="margin:0">Whether it's about tech, travel, or just to share dog photos - I'm all ears!</p>
   </div>
   <a class="btn" href="{{ '/contact/' | relative_url }}">Let's Talk</a>

@@ -5,19 +5,19 @@ title: Blog
 
 <div class="blog-container">
   <div class="blog-header">
-    <h1>Blog</h1>
+    <h1 class="lvl0" id="blog">Blog</h1>
     <p>Thoughts, tutorials, and insights on web development, design, and technology</p>
   </div>
 
   <div class="blog-grid">
     {% for post in site.posts %}
-    <article class="blog-card{% if post.style %} {{ post.style }}{% endif %}">
+    <article class="blog-card{% if post.style %} {{ post.style }}{% endif %}" data-type="post">
       <div class="blog-card-header">
         <div class="blog-meta">
           <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %d, %Y' }}</time>
           <span class="blog-category">{{ post.category | default: 'General' }}</span>
         </div>
-        <h2 class="blog-title">
+        <h2 class="blog-title lvl1" id="post-{{ forloop.index }}">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h2>
         <p class="blog-excerpt">{{ post.excerpt }}</p>
@@ -38,7 +38,7 @@ title: Blog
 
   <div class="blog-sidebar">
     <div class="sidebar-section">
-      <h3>Categories</h3>
+      <h3 class="lvl2" id="categories">Categories</h3>
       <ul class="category-list">
         {% assign categories = site.posts | map: "category" | compact | uniq | sort %}
         {% for category in categories %}
@@ -51,7 +51,7 @@ title: Blog
     </div>
 
     <div class="sidebar-section">
-      <h3>Popular Tags</h3>
+      <h3 class="lvl2" id="popular-tags">Popular Tags</h3>
       <div class="tag-cloud">
         {% assign all_tags = site.posts | map: "tags" | compact | uniq | sort %}
         {% for tag in all_tags %}
@@ -63,7 +63,7 @@ title: Blog
     </div>
 
     <div class="sidebar-section">
-      <h3>Subscribe</h3>
+      <h3 class="lvl2" id="subscribe">Subscribe</h3>
       <p>Get the latest posts delivered to your inbox.</p>
       <form class="subscribe-form" action="https://formspree.io/f/xrblwqqg" method="POST" id="subscribe-form">
         <input type="email" name="email" placeholder="Enter your email" required>

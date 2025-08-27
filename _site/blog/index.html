@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Modern, sharp template powered by Jekyll">
   <meta name="algolia-site-verification" content="C802A0040E6938AB" />
+  
+  <!-- Algolia DocSearch meta tags -->
+  <meta name="docsearch:language" content="en" />
+  <meta name="docsearch:version" content="1.0.0" />
+  <meta name="docsearch:type" content="page" />
+  
   <link href="/styles.css" rel="stylesheet">
 </head>
 <body>
@@ -49,22 +55,22 @@
   </div>
 </header>
 
-<main class="page">
+<main class="page DocSearch-content">
   <div class="blog-container">
   <div class="blog-header">
-    <h1>Blog</h1>
+    <h1 class="lvl0" id="blog">Blog</h1>
     <p>Thoughts, tutorials, and insights on web development, design, and technology</p>
   </div>
 
   <div class="blog-grid">
     
-    <article class="blog-card style-modern">
+    <article class="blog-card style-modern" data-type="post">
       <div class="blog-card-header">
         <div class="blog-meta">
           <time datetime="2025-08-21">August 21, 2025</time>
           <span class="blog-category">ServiceNow</span>
         </div>
-        <h2 class="blog-title">
+        <h2 class="blog-title lvl1" id="post-1">
           <a href="/posts/servicenow-notification-templates/">ServiceNow Notification Templates</a>
         </h2>
         <p class="blog-excerpt">A collection of modern, professional HTML email templates for ServiceNow notifications. Five different styles inspired by popular brands to make your notifications stand out.</p>
@@ -97,13 +103,13 @@
       </div>
     </article>
     
-    <article class="blog-card style-modern">
+    <article class="blog-card style-modern" data-type="post">
       <div class="blog-card-header">
         <div class="blog-meta">
           <time datetime="2024-12-20">December 20, 2024</time>
           <span class="blog-category">Security</span>
         </div>
-        <h2 class="blog-title">
+        <h2 class="blog-title lvl1" id="post-2">
           <a href="/posts/microsoft-password-expiry-security-myth/">Microsoft Says Password Expiry Makes You Less Secure</a>
         </h2>
         <p class="blog-excerpt">Microsoft's research reveals that forcing password changes actually makes systems less secure. Here's why the traditional wisdom about password expiry is wrong.</p>
@@ -140,13 +146,13 @@
       </div>
     </article>
     
-    <article class="blog-card style-modern">
+    <article class="blog-card style-modern" data-type="post">
       <div class="blog-card-header">
         <div class="blog-meta">
           <time datetime="2024-12-19">December 19, 2024</time>
           <span class="blog-category">ServiceNow</span>
         </div>
-        <h2 class="blog-title">
+        <h2 class="blog-title lvl1" id="post-3">
           <a href="/posts/do-we-really-need-reqs-in-servicenow/">Do We Really Need REQs in ServiceNow?</a>
         </h2>
         <p class="blog-excerpt">A deep dive into whether ServiceNow Requests (REQs) are always necessary, exploring the pros and cons of skipping them and when it might actually work.</p>
@@ -195,7 +201,7 @@
 
   <div class="blog-sidebar">
     <div class="sidebar-section">
-      <h3>Categories</h3>
+      <h3 class="lvl2" id="categories">Categories</h3>
       <ul class="category-list">
         
         
@@ -213,7 +219,7 @@
     </div>
 
     <div class="sidebar-section">
-      <h3>Popular Tags</h3>
+      <h3 class="lvl2" id="popular-tags">Popular Tags</h3>
       <div class="tag-cloud">
         
         
@@ -289,12 +295,12 @@
     </div>
 
     <div class="sidebar-section">
-      <h3>Subscribe</h3>
+      <h3 class="lvl2" id="subscribe">Subscribe</h3>
       <p>Get the latest posts delivered to your inbox.</p>
       <form class="subscribe-form" action="https://formspree.io/f/xrblwqqg" method="POST" id="subscribe-form">
         <input type="email" name="email" placeholder="Enter your email" required>
         <input type="hidden" name="_subject" value="New Blog Subscription">
-        <input type="hidden" name="_next" value="http://localhost:4000/blog/?subscribed=true">
+        <input type="hidden" name="_next" value="http://0.0.0.0:4000/blog/?subscribed=true">
         <button type="submit" class="btn btn-primary">Subscribe</button>
       </form>
       <div id="subscribe-success" class="subscribe-success" style="display: none;">
@@ -365,3 +371,4 @@
 </script>
 </body>
 </html>
+>

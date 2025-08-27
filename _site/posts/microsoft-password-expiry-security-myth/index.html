@@ -1,0 +1,649 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Microsoft Says Password Expiry Makes You Less Secure · Glitched.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Modern, sharp template powered by Jekyll">
+  <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="site-header style-10">
+  <div class="nav-shell">
+    <a class="brand" href="/">Glitched.</a>
+    <nav id="nav-links" class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="header-right">
+      <div class="search-bar style-11">
+        <svg class="search-icon" viewBox="0 0 24 24">
+          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" placeholder="Search..." aria-label="Search">
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+        <!-- Moon icon for light mode (to switch to dark) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- Sun icon for dark mode (to switch to light) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2"/>
+          <path d="M12 21v2"/>
+          <path d="M4.22 4.22l1.42 1.42"/>
+          <path d="M18.36 18.36l1.42 1.42"/>
+          <path d="M1 12h2"/>
+          <path d="M21 12h2"/>
+          <path d="M4.22 19.78l1.42-1.42"/>
+          <path d="M18.36 5.64l1.42-1.42"/>
+        </svg>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <article class="blog-post style-modern">
+  <div class="post-hero">
+    <div class="hero-left">
+      <h1 class="post-title">Microsoft Says Password Expiry Makes You Less Secure</h1>
+      <p class="post-subtitle">Why forcing password changes every 90 days actually hurts your security</p>
+      
+      <div class="post-meta">
+        <time datetime="2024-12-20">December 20, 2024</time>
+        <span class="reading-time">3 min read</span>
+        <span class="difficulty">Beginner</span>
+        <div class="categories">
+          <span class="category">Security</span>
+          <span class="category">Best Practices</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-right">
+      <div class="table-of-contents">
+        <div class="toc-header">
+          <div class="toc-icon">📋</div>
+          <h3>What's This About?</h3>
+        </div>
+        <div class="toc-items">
+          <a href="#the-myth" class="toc-item">
+            <div class="toc-number">01</div>
+            <div class="toc-content">
+              <span class="toc-title">The Mind-Blowing Revelation</span>
+              <span class="toc-desc">How my manager changed everything</span>
+            </div>
+          </a>
+          <a href="#microsoft-research" class="toc-item">
+            <div class="toc-number">02</div>
+            <div class="toc-content">
+              <span class="toc-title">Why Password Expiry Backfires</span>
+              <span class="toc-desc">The predictable human behavior</span>
+            </div>
+          </a>
+          <a href="#better-approaches" class="toc-item">
+            <div class="toc-number">03</div>
+            <div class="toc-content">
+              <span class="toc-title">What Actually Works</span>
+              <span class="toc-desc">Better security approaches</span>
+            </div>
+          </a>
+          <a href="#takeaway" class="toc-item">
+            <div class="toc-number">04</div>
+            <div class="toc-content">
+              <span class="toc-title">My Takeaway</span>
+              <span class="toc-desc">Four years later, still secure</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <div class="content-intro">
+      <p class="lead">I remember about 3 years ago my manager tapped me on the shoulder and said "You know expiring your password is actually less secure than just having a really strong password" and I noticed that this was the first place I ever worked at that didn't have a password expiration period. I was blown away and for the next 4 years working here I have never changed my password.</p>
+    </div>
+
+    <section class="content-section" id="the-myth">
+      <h2>The Mind-Blowing Revelation</h2>
+      <p>That conversation completely changed how I thought about password security. For years, I'd been conditioned to believe that forcing password changes every 90 days was a security best practice. Every company I'd worked for had some version of this policy - "Passwords expire every 90 days" or "You must change your password quarterly."</p>
+
+      <p>But here I was, at a company that didn't force password changes at all. And according to my manager, this was actually more secure. My mind was blown.</p>
+    </section>
+
+    <section class="content-section" id="microsoft-research">
+      <h2>Why Password Expiry Backfires</h2>
+      <p>It turns out that Microsoft's research team has been saying this for years. When you force people to change passwords frequently, they do predictable things:</p>
+
+      <ul>
+        <li>Use patterns like Password1, Password2, Password3</li>
+        <li>Make minimal changes like MyPassword → MyPassw0rd</li>
+        <li>Write passwords down because they're hard to remember</li>
+        <li>Use the same password across multiple accounts</li>
+      </ul>
+
+      <p>Microsoft found that users forced to change passwords every 90 days are 2.5 times more likely to use weaker passwords than users who aren't forced to change them regularly.</p>
+
+      <p>The logic is simple: if an attacker gets your password, they use it immediately. They don't wait around for 90 days. And if they can't get in right away, they move on to other targets.</p>
+    </section>
+
+    <section class="content-section" id="better-approaches">
+      <h2>What Actually Works</h2>
+      <p>Instead of forcing password changes, focus on:</p>
+
+      <ul>
+        <li><strong>Strong passwords from the start</strong> - 12+ characters, unique for each account</li>
+        <li><strong>Multi-factor authentication (MFA)</strong> - Microsoft found this blocks 99.9% of attacks</li>
+        <li><strong>Monitoring for compromised passwords</strong> - change only when there's evidence of breach</li>
+        <li><strong>User education</strong> - teach people about password security best practices</li>
+      </ul>
+    </section>
+
+    <section class="content-section" id="takeaway">
+      <h2>My Takeaway</h2>
+      <p>Four years later, I still haven't changed my password at that company. And you know what? I feel more secure than I ever did at places that forced quarterly changes.</p>
+
+      <p>Sometimes the best security practices are the ones that work with human nature, not against it. A strong password that never changes is better than weak passwords that change every 90 days.</p>
+
+      <p>What do you think? Have you worked somewhere that doesn't force password changes?</p>
+    </section>
+
+    <div class="cta-section">
+      <a href="/contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+
+    <section class="content-section">
+      <h2>Helpful Resources</h2>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h3>Microsoft Security Blog</h3>
+          <p>Official Microsoft research on password policies and security best practices.</p>
+          <a href="https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-percent-of-account-hijacking/" target="_blank" rel="noopener noreferrer" class="resource-link">Read Research →</a>
+        </div>
+        
+        <div class="resource-card">
+          <h3>NIST Password Guidelines</h3>
+          <p>National Institute of Standards and Technology guidelines on password security.</p>
+          <a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank" rel="noopener noreferrer" class="resource-link">Read Guidelines →</a>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Have I Been Pwned</h3>
+          <p>Check if your email or password has been compromised in a data breach.</p>
+          <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="resource-link">Check Your Data →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</article>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+  }
+
+  .post-hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .hero-left {
+    text-align: left;
+  }
+
+  .hero-right {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
+  .post-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin: 0 0 2rem 0;
+    line-height: 1.5;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .post-meta time {
+    font-weight: 500;
+  }
+
+  .reading-time, .difficulty {
+    background: var(--primary);
+    color: var(--primary-ink);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .categories {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .category {
+    background: var(--pink);
+    color: var(--primary-ink);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .table-of-contents {
+    background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg) 100%);
+    border: 2px solid var(--primary);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: sticky;
+    top: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary);
+  }
+
+  .toc-icon {
+    font-size: 1.5rem;
+    background: var(--primary);
+    color: var(--primary-ink);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toc-header h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .toc-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .toc-item:hover {
+    transform: translateX(4px);
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(139, 115, 85, 0.15);
+  }
+
+  .toc-number {
+    background: var(--snow-accent);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .toc-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .toc-title {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .toc-desc {
+    color: var(--muted);
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .content-intro {
+    margin-bottom: 3rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+  }
+
+  .content-section h2 {
+    color: var(--text);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .content-section h3 {
+    color: var(--text);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .content-section p {
+    margin: 0 0 1.5rem 0;
+    line-height: 1.7;
+  }
+
+  .content-section ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .content-section li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .content-section strong {
+    color: var(--text);
+  }
+
+  .cta-section {
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--snow-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn:hover {
+    background: #7a6347;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .resource-card {
+    background: var(--bg-2);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.15);
+  }
+
+  .resource-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .resource-card p {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .resource-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .resource-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .post-hero {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-right {
+      position: static;
+      order: -1;
+    }
+
+    .post-title {
+      font-size: 2rem;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .post-subtitle {
+      font-size: 1.1rem;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .post-meta {
+      gap: 1rem;
+    }
+
+    .categories {
+      gap: 0.4rem;
+    }
+
+    .category {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+    }
+
+    .table-of-contents {
+      position: static;
+      padding: 1rem;
+    }
+
+    .toc-header {
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .toc-icon {
+      width: 35px;
+      height: 35px;
+      font-size: 1.25rem;
+    }
+
+    .toc-header h3 {
+      font-size: 1.1rem;
+    }
+
+    .toc-items {
+      gap: 0.5rem;
+    }
+
+    .toc-item {
+      padding: 0.6rem;
+      gap: 0.6rem;
+    }
+
+    .toc-number {
+      width: 24px;
+      height: 24px;
+      font-size: 0.75rem;
+    }
+
+    .toc-title {
+      font-size: 0.9rem;
+    }
+
+    .toc-desc {
+      font-size: 0.75rem;
+    }
+
+    .resources-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-brand">Glitched.</div>
+    <div class="footer-links">
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/bryanramosramirez/" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="https://instagram.com/onlybryanr" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Instagram
+      </a>
+      <a href="https://github.com/exonglish" aria-label="GitHub" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+    <div class="footer-copyright">© <span id="y"></span> Glitched. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  
+  // Theme toggle functionality
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
+  
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  // Search bar functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchBar = document.querySelector('.search-bar.style-11');
+    const searchInput = searchBar.querySelector('input');
+    
+    // Expand search bar when clicked
+    searchBar.addEventListener('click', function() {
+      searchBar.classList.add('expanded');
+      searchInput.focus();
+    });
+    
+    // Collapse search bar when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!searchBar.contains(event.target)) {
+        searchBar.classList.remove('expanded');
+        searchInput.blur();
+      }
+    });
+    
+    // Keep expanded when input is focused
+    searchInput.addEventListener('focus', function() {
+      searchBar.classList.add('expanded');
+    });
+    
+    // Collapse when input loses focus
+    searchInput.addEventListener('blur', function() {
+      // Small delay to allow for clicking outside
+      setTimeout(() => {
+        if (!searchBar.contains(document.activeElement)) {
+          searchBar.classList.remove('expanded');
+        }
+      }, 100);
+    });
+  });
+</script>
+</body>
+</html>

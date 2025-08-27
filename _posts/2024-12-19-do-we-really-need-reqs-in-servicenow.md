@@ -28,14 +28,47 @@ style: style-modern
     
     <div class="hero-right">
       <div class="table-of-contents">
-        <h3>Table of Contents</h3>
-        <ul>
-          <li><a href="#refresher">Quick Refresher</a></li>
-          <li><a href="#client-setup">The Client Setup</a></li>
-          <li><a href="#pros-cons">Pros & Cons Analysis</a></li>
-          <li><a href="#edge-cases">Edge Cases & Considerations</a></li>
-          <li><a href="#takeaway">My Takeaway</a></li>
-        </ul>
+        <div class="toc-header">
+          <div class="toc-icon">📋</div>
+          <h3>What's This About?</h3>
+        </div>
+        <div class="toc-items">
+          <a href="#refresher" class="toc-item">
+            <div class="toc-number">01</div>
+            <div class="toc-content">
+              <span class="toc-title">Quick Refresher</span>
+              <span class="toc-desc">REQ vs RITM vs Task hierarchy</span>
+            </div>
+          </a>
+          <a href="#client-setup" class="toc-item">
+            <div class="toc-number">02</div>
+            <div class="toc-content">
+              <span class="toc-title">The Client Setup</span>
+              <span class="toc-desc">When REQs were completely skipped</span>
+            </div>
+          </a>
+          <a href="#pros-cons" class="toc-item">
+            <div class="toc-number">03</div>
+            <div class="toc-content">
+              <span class="toc-title">Pros & Cons Analysis</span>
+              <span class="toc-desc">When it works vs when it doesn't</span>
+            </div>
+          </a>
+          <a href="#edge-cases" class="toc-item">
+            <div class="toc-number">04</div>
+            <div class="toc-content">
+              <span class="toc-title">Edge Cases & Considerations</span>
+              <span class="toc-desc">When skipping REQs might work</span>
+            </div>
+          </a>
+          <a href="#takeaway" class="toc-item">
+            <div class="toc-number">05</div>
+            <div class="toc-content">
+              <span class="toc-title">My Takeaway</span>
+              <span class="toc-desc">Lessons learned and recommendations</span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -449,42 +482,99 @@ style: style-modern
         }
 
         .table-of-contents {
-          background: var(--bg-2);
-          border: 1px solid var(--primary);
-          border-radius: 8px;
+          background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg) 100%);
+          border: 2px solid var(--primary);
+          border-radius: 16px;
           padding: 1.5rem;
           position: sticky;
           top: 2rem;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .table-of-contents h3 {
-          margin: 0 0 1rem 0;
-          color: var(--text);
-          font-size: 1.1rem;
-          font-weight: 600;
+        .toc-header {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1.5rem;
+          padding-bottom: 1rem;
+          border-bottom: 2px solid var(--primary);
         }
 
-        .table-of-contents ul {
-          list-style: none;
-          padding: 0;
+        .toc-icon {
+          font-size: 1.5rem;
+          background: var(--primary);
+          color: var(--primary-ink);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .toc-header h3 {
           margin: 0;
-        }
-
-        .table-of-contents li {
-          margin-bottom: 0.75rem;
-        }
-
-        .table-of-contents a {
           color: var(--text);
-          text-decoration: none;
-          font-size: 0.9rem;
-          line-height: 1.4;
-          transition: color 0.2s ease;
+          font-size: 1.2rem;
+          font-weight: 700;
         }
 
-        .table-of-contents a:hover {
-          color: var(--primary);
-          text-decoration: underline;
+        .toc-items {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .toc-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+          padding: 0.75rem;
+          background: var(--bg);
+          border-radius: 12px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          border: 1px solid transparent;
+        }
+
+        .toc-item:hover {
+          transform: translateX(4px);
+          border-color: var(--primary);
+          box-shadow: 0 4px 16px rgba(139, 115, 85, 0.15);
+        }
+
+        .toc-number {
+          background: var(--snow-accent);
+          color: white;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 0.8rem;
+          flex-shrink: 0;
+        }
+
+        .toc-content {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+          flex: 1;
+        }
+
+        .toc-title {
+          color: var(--text);
+          font-weight: 600;
+          font-size: 0.95rem;
+          line-height: 1.3;
+        }
+
+        .toc-desc {
+          color: var(--muted);
+          font-size: 0.8rem;
+          line-height: 1.3;
         }
 
         .cta-section {
@@ -615,6 +705,45 @@ style: style-modern
           .table-of-contents {
             position: static;
             padding: 1rem;
+          }
+
+          .toc-header {
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+          }
+
+          .toc-icon {
+            width: 35px;
+            height: 35px;
+            font-size: 1.25rem;
+          }
+
+          .toc-header h3 {
+            font-size: 1.1rem;
+          }
+
+          .toc-items {
+            gap: 0.5rem;
+          }
+
+          .toc-item {
+            padding: 0.6rem;
+            gap: 0.6rem;
+          }
+
+          .toc-number {
+            width: 24px;
+            height: 24px;
+            font-size: 0.75rem;
+          }
+
+          .toc-title {
+            font-size: 0.9rem;
+          }
+
+          .toc-desc {
+            font-size: 0.75rem;
           }
 
 

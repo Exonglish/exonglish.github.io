@@ -10,7 +10,10 @@ style: style-modern
 
 <article class="blog-post style-modern">
   <div class="post-hero">
-    <div class="hero-content">
+    <div class="hero-left">
+      <h1 class="post-title">ServiceNow Notification Templates</h1>
+      <p class="post-subtitle">Modern HTML email templates to make your notifications stand out</p>
+      
       <div class="post-meta">
         <time datetime="2024-08-21">August 21, 2024</time>
         <div class="post-categories">
@@ -18,8 +21,52 @@ style: style-modern
           <span class="category">Email Templates</span>
         </div>
       </div>
-      <h1 class="post-title">ServiceNow Notification Templates</h1>
-      <p class="post-subtitle">Modern HTML email templates to make your notifications stand out</p>
+    </div>
+    
+    <div class="hero-right">
+      <div class="table-of-contents">
+        <div class="toc-header">
+          <div class="toc-icon">📋</div>
+          <h3>What's This About?</h3>
+        </div>
+        <div class="toc-items">
+          <a href="#tesla-style" class="toc-item">
+            <div class="toc-number">01</div>
+            <div class="toc-content">
+              <span class="toc-title">Tesla Style</span>
+              <span class="toc-desc">Minimalist & futuristic design</span>
+            </div>
+          </a>
+          <a href="#google-style" class="toc-item">
+            <div class="toc-number">02</div>
+            <div class="toc-content">
+              <span class="toc-title">Google Style</span>
+              <span class="toc-desc">Material Design inspired</span>
+            </div>
+          </a>
+          <a href="#adobe-style" class="toc-item">
+            <div class="toc-number">03</div>
+            <div class="toc-content">
+              <span class="toc-title">Adobe Style</span>
+              <span class="toc-desc">Editorial & professional</span>
+            </div>
+          </a>
+          <a href="#chatgpt-style" class="toc-item">
+            <div class="toc-number">04</div>
+            <div class="toc-content">
+              <span class="toc-title">ChatGPT Style</span>
+              <span class="toc-desc">Modern & conversational</span>
+            </div>
+          </a>
+          <a href="#macos-style" class="toc-item">
+            <div class="toc-number">05</div>
+            <div class="toc-content">
+              <span class="toc-title">macOS Style</span>
+              <span class="toc-desc">Native & clean design</span>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -28,7 +75,7 @@ style: style-modern
       <p class="lead">ServiceNow notifications are crucial for keeping users informed, but let's be honest - the default styling could use some serious love. I've created 5 modern HTML templates that will make your notifications stand out and actually get read.</p>
     </div>
 
-    <section class="content-section">
+    <section class="content-section" id="tesla-style">
       <h2>Tesla Style - Minimalist & Futuristic</h2>
       <p><strong>Perfect for:</strong> System alerts, status updates, critical notifications</p>
       
@@ -193,7 +240,7 @@ style: style-modern
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="google-style">
       <h2>Google Style - Material Design</h2>
       <p><strong>Perfect for:</strong> User communications, approval requests, general updates</p>
       
@@ -348,7 +395,7 @@ style: style-modern
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="adobe-style">
       <h2>Adobe Style - Editorial & Professional</h2>
       <p><strong>Perfect for:</strong> Creative teams, design requests, content approvals</p>
       
@@ -485,7 +532,7 @@ style: style-modern
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="chatgpt-style">
       <h2>ChatGPT Style - Modern & Conversational</h2>
       <p><strong>Perfect for:</strong> AI-related requests, knowledge base updates, user support</p>
       
@@ -668,7 +715,7 @@ style: style-modern
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="macos-style">
       <h2>macOS Style - Native & Clean</h2>
       <p><strong>Perfect for:</strong> Internal communications, system notifications, general updates</p>
       
@@ -782,3 +829,321 @@ style: style-modern
     </section>
   </div>
 </article>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+  }
+
+  .post-hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .hero-left {
+    text-align: left;
+  }
+
+  .hero-right {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
+  .post-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin: 0 0 2rem 0;
+    line-height: 1.5;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .post-meta time {
+    font-weight: 500;
+  }
+
+  .post-categories {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .category {
+    background: var(--pink);
+    color: var(--primary-ink);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .table-of-contents {
+    background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg) 100%);
+    border: 2px solid var(--primary);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: sticky;
+    top: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary);
+  }
+
+  .toc-icon {
+    font-size: 1.5rem;
+    background: var(--primary);
+    color: var(--primary-ink);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toc-header h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .toc-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .toc-item:hover {
+    transform: translateX(4px);
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(139, 115, 85, 0.15);
+  }
+
+  .toc-number {
+    background: var(--snow-accent);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .toc-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .toc-title {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .toc-desc {
+    color: var(--muted);
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .content-intro {
+    margin-bottom: 3rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+  }
+
+  .content-section h2 {
+    color: var(--text);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .content-section h3 {
+    color: var(--text);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .content-section p {
+    margin: 0 0 1.5rem 0;
+    line-height: 1.7;
+  }
+
+  .content-section ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .content-section li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .content-section strong {
+    color: var(--text);
+  }
+
+  .template-embed {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .template-download {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--snow-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn:hover {
+    background: #7a6347;
+  }
+
+  @media (max-width: 768px) {
+    .post-hero {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-right {
+      position: static;
+      order: -1;
+    }
+
+    .post-title {
+      font-size: 2rem;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .post-subtitle {
+      font-size: 1.1rem;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .post-meta {
+      gap: 1rem;
+    }
+
+    .post-categories {
+      gap: 0.4rem;
+    }
+
+    .category {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+    }
+
+    .table-of-contents {
+      position: static;
+      padding: 1rem;
+    }
+
+    .toc-header {
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .toc-icon {
+      width: 35px;
+      height: 35px;
+      font-size: 1.25rem;
+    }
+
+    .toc-header h3 {
+      font-size: 1.1rem;
+    }
+
+    .toc-items {
+      gap: 0.5rem;
+    }
+
+    .toc-item {
+      padding: 0.6rem;
+      gap: 0.6rem;
+    }
+
+    .toc-number {
+      width: 24px;
+      height: 24px;
+      font-size: 0.75rem;
+    }
+
+    .toc-title {
+      font-size: 0.9rem;
+    }
+
+    .toc-desc {
+      font-size: 0.75rem;
+    }
+  }
+</style>

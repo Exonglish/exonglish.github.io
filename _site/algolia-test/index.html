@@ -2,26 +2,26 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }} · {{ site.title }}</title>
+  <title>Algolia Test · Glitched.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="description" content="Modern, sharp template powered by Jekyll">
   <meta name="algolia-site-verification" content="C802A0040E6938AB" />
-  <link href="{{ '/styles.css' | relative_url }}" rel="stylesheet">
+  <link href="/styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="grain"></div>
 
 <header class="site-header style-10">
   <div class="nav-shell">
-    <a class="brand" href="{{ '/' | relative_url }}">Glitched.</a>
+    <a class="brand" href="/">Glitched.</a>
     <nav id="nav-links" class="nav-links">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
     </nav>
     <div class="header-right">
-      <a href="{{ '/search/' | relative_url }}" class="search-bar style-11" style="text-decoration: none;">
+      <a href="/search/" class="search-bar style-11" style="text-decoration: none;">
         <svg class="search-icon" viewBox="0 0 24 24">
           <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
         </svg>
@@ -53,16 +53,103 @@
 </header>
 
 <main class="page">
-  {{ content }}
+  <div style="max-width: 800px; margin: 0 auto; padding: 60px 24px;">
+  <h1>Algolia Search Test</h1>
+  
+  <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3>Configuration Check:</h3>
+    <ul>
+      <li><strong>App ID:</strong> ZKBJX25WUV</li>
+      <li><strong>Index Name:</strong> Glitched.</li>
+      <li><strong>API Key:</strong> 7cee6234bcbedf60f3046950f9e0c0e9</li>
+      <li><strong>Verification Tag:</strong> ✅ Added</li>
+    </ul>
+  </div>
+  
+  <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3>Next Steps:</h3>
+    <ol>
+      <li>Make sure your site is live at <code>exonglish.github.io</code></li>
+      <li>Wait 24-48 hours for Algolia to crawl and index your content</li>
+      <li>Check the browser console for any errors</li>
+      <li>Try searching for content you know exists</li>
+    </ol>
+  </div>
+  
+  <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3>Troubleshooting:</h3>
+    <ul>
+      <li>Open browser developer tools (F12)</li>
+      <li>Go to Console tab</li>
+      <li>Look for any error messages</li>
+      <li>Check Network tab for failed requests</li>
+    </ul>
+  </div>
+  
+  <div id="search-test">
+    <h3>Test Search:</h3>
+    <input type="text" id="test-input" placeholder="Try searching for 'ServiceNow' or 'templates'..." style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+  </div>
+</div>
+
+<!-- Algolia DocSearch -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+
+<script type="text/javascript">
+  console.log('Algolia test page loaded');
+  
+  try {
+    docsearch({
+      apiKey: '7cee6234bcbedf60f3046950f9e0c0e9',
+      indexName: 'Glitched.',
+      inputSelector: '#test-input',
+      debug: true,
+      searchParameters: {
+        filters: 'type:post OR type:page'
+      }
+    });
+    console.log('DocSearch initialized successfully');
+  } catch (error) {
+    console.error('DocSearch initialization failed:', error);
+  }
+  
+  // Test if the API key is working
+  fetch('https://ZKBJX25WUV-dsn.algolia.net/1/indexes/Glitched./query', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Algolia-API-Key': '7cee6234bcbedf60f3046950f9e0c0e9',
+      'X-Algolia-Application-Id': 'ZKBJX25WUV'
+    },
+    body: JSON.stringify({
+      query: 'test',
+      hitsPerPage: 5
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Algolia API test response:', data);
+    if (data.hits) {
+      console.log('✅ Algolia is working! Found', data.hits.length, 'results');
+    } else {
+      console.log('❌ Algolia returned no results or error');
+    }
+  })
+  .catch(error => {
+    console.error('❌ Algolia API test failed:', error);
+  });
+</script>
+
 </main>
 
 <footer class="site-footer">
   <div class="footer-content">
     <div class="footer-brand">Glitched.</div>
     <div class="footer-links">
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
     </div>
     <div class="footer-social">
       <a href="https://www.linkedin.com/in/bryanramosramirez/" aria-label="LinkedIn" target="_blank" rel="noopener">
@@ -88,7 +175,7 @@
   </div>
 </footer>
 
-<script src="{{ '/script.js' | relative_url }}"></script>
+<script src="/script.js"></script>
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
   

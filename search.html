@@ -22,14 +22,20 @@ title: Search
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
 <script type="text/javascript">
+  // Enable debug mode to see what's happening
   docsearch({
     apiKey: '7cee6234bcbedf60f3046950f9e0c0e9',
     indexName: 'Glitched.',
     inputSelector: '#search-input',
-    debug: false,
+    debug: true, // Enable debug mode
     searchParameters: {
       filters: 'type:post OR type:page'
     }
+  });
+  
+  // Add error handling
+  window.addEventListener('error', function(e) {
+    console.error('Search error:', e);
   });
 </script>
 

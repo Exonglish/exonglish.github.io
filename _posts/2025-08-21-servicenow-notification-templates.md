@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ServiceNow Notification Templates
-date: 2024-08-21
+date: 2025-08-21
 category: ServiceNow
 tags: [servicenow, email, templates, notifications, html]
 excerpt: A collection of modern, professional HTML email templates for ServiceNow notifications. Five different styles inspired by popular brands to make your notifications stand out.

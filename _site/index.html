@@ -86,7 +86,48 @@
 <section class="section">
   <h2 style="margin:0 0 12px 0">My Latest Tinkers</h2>
   <p class="muted" style="margin:0 0 12px 0">Random thoughts, tech discoveries, and things that caught my attention.</p>
-  <a class="btn" href="/blog/">Read My Thoughts</a>
+  
+  <div class="blog-preview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+    
+    <article class="blog-preview-card" style="background: var(--bg-2); border: 1px solid var(--primary); border-radius: 6px; padding: 1rem; transition: transform 0.2s ease;">
+      <div class="blog-preview-meta" style="display: flex; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted);">
+        <time datetime="2025-08-21">August 21, 2025</time>
+        <span>ServiceNow</span>
+      </div>
+      <h3 class="blog-preview-title" style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">
+        <a href="/posts/servicenow-notification-templates/" style="color: var(--text); text-decoration: none;">ServiceNow Notification Templates</a>
+      </h3>
+      <p class="blog-preview-excerpt" style="margin: 0 0 0.75rem 0; color: var(--muted); line-height: 1.4; font-size: 0.9rem;">A collection of modern, professional HTML email templates for ServiceNow notifications. Five different styles inspired by popular brands to make your notifications stand out.</p>
+      <a href="/posts/servicenow-notification-templates/" class="read-more" style="color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.85rem;">Read More →</a>
+    </article>
+    
+    <article class="blog-preview-card" style="background: var(--bg-2); border: 1px solid var(--primary); border-radius: 6px; padding: 1rem; transition: transform 0.2s ease;">
+      <div class="blog-preview-meta" style="display: flex; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted);">
+        <time datetime="2024-12-19">December 19, 2024</time>
+        <span>ServiceNow</span>
+      </div>
+      <h3 class="blog-preview-title" style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">
+        <a href="/posts/do-we-really-need-reqs-in-servicenow/" style="color: var(--text); text-decoration: none;">Do We Really Need REQs in ServiceNow?</a>
+      </h3>
+      <p class="blog-preview-excerpt" style="margin: 0 0 0.75rem 0; color: var(--muted); line-height: 1.4; font-size: 0.9rem;">A deep dive into whether ServiceNow Requests (REQs) are always necessary, exploring the pros and cons of skipping them and when it might actually work.</p>
+      <a href="/posts/do-we-really-need-reqs-in-servicenow/" class="read-more" style="color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.85rem;">Read More →</a>
+    </article>
+    
+    <article class="blog-preview-card" style="background: var(--bg-2); border: 1px solid var(--primary); border-radius: 6px; padding: 1rem; transition: transform 0.2s ease;">
+      <div class="blog-preview-meta" style="display: flex; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted);">
+        <time datetime="2024-01-20">January 20, 2024</time>
+        <span>CSS</span>
+      </div>
+      <h3 class="blog-preview-title" style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">
+        <a href="/posts/mastering-css-grid-and-flexbox/" style="color: var(--text); text-decoration: none;">Mastering CSS Grid and Flexbox</a>
+      </h3>
+      <p class="blog-preview-excerpt" style="margin: 0 0 0.75rem 0; color: var(--muted); line-height: 1.4; font-size: 0.9rem;">Deep dive into modern CSS layout techniques with Grid and Flexbox, including practical examples and real-world use cases for creating responsive designs.</p>
+      <a href="/posts/mastering-css-grid-and-flexbox/" class="read-more" style="color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.85rem;">Read More →</a>
+    </article>
+    
+  </div>
+  
+  <a class="btn" href="/blog/">View All Posts</a>
 </section>
 
 <!-- My services - what I offer -->

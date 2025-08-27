@@ -10,7 +10,9 @@ title: Search
   </div>
   
   <div class="search-container">
-    <div id="docsearch"></div>
+    <div class="search-input-wrapper">
+      <input type="text" id="search-trigger" placeholder="Search for posts, projects, or topics..." autofocus>
+    </div>
   </div>
 </div>
 
@@ -21,13 +23,35 @@ title: Search
 <script type="text/javascript">
   // Algolia DocSearch configuration
   docsearch({
-    container: '#docsearch',
     appId: 'ZKBJX25WUV',
     indexName: 'Glitched.',
     apiKey: '7cee6234bcbedf60f3046950f9e0c0e9',
     searchParameters: {
       filters: 'type:post OR type:page'
     }
+  });
+  
+  // Trigger DocSearch when input is clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchTrigger = document.getElementById('search-trigger');
+    
+    searchTrigger.addEventListener('click', function() {
+      // Trigger DocSearch modal
+      const docsearchButton = document.querySelector('.DocSearch-Button');
+      if (docsearchButton) {
+        docsearchButton.click();
+      }
+    });
+    
+    searchTrigger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        // Trigger DocSearch modal
+        const docsearchButton = document.querySelector('.DocSearch-Button');
+        if (docsearchButton) {
+          docsearchButton.click();
+        }
+      }
+    });
   });
   
   // Add error handling
@@ -68,12 +92,12 @@ title: Search
   padding: 32px;
 }
 
-#docsearch {
+.search-input-wrapper {
+  position: relative;
   width: 100%;
 }
 
-/* DocSearch input styling */
-#docsearch .DocSearch-Input {
+#search-trigger {
   width: 100%;
   padding: 16px;
   border: 1px solid var(--primary);
@@ -83,10 +107,16 @@ title: Search
   font-size: 16px;
   outline: none;
   transition: border-color 0.2s;
+  cursor: pointer;
 }
 
-#docsearch .DocSearch-Input:focus {
+#search-trigger:focus {
   border-color: var(--snow-brown);
+  box-shadow: 0 0 0 2px rgba(139,115,85,0.1);
+}
+
+#search-trigger::placeholder {
+  color: var(--muted);
 }
 
 /* DocSearch styling */

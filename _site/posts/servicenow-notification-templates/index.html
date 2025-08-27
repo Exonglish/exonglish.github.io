@@ -20,15 +20,12 @@
       <a href="/contact/">Contact</a>
     </nav>
     <div class="header-right">
-      <div class="search-bar style-11">
+      <a href="/search/" class="search-bar style-11" style="text-decoration: none;">
         <svg class="search-icon" viewBox="0 0 24 24">
           <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
         </svg>
-        <form action="https://www.google.com/search" method="get" target="_blank" style="display: contents;">
-          <input type="text" name="q" placeholder="Search..." aria-label="Search" style="background: none; border: none; outline: none; color: var(--text); font-size: 14px; width: 100%; margin-left: 8px;">
-          <input type="hidden" name="sitesearch" value="exonglish.github.io">
-        </form>
-      </div>
+        <span style="color: var(--text); font-size: 14px; margin-left: 8px;">Search</span>
+      </a>
       <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
         <!-- Moon icon for light mode (to switch to dark) -->
         <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1248,48 +1245,9 @@
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   
-  // Search bar functionality
+  // Search bar functionality - now just a link to search page
   document.addEventListener('DOMContentLoaded', function() {
-    const searchBar = document.querySelector('.search-bar.style-11');
-    const searchForm = searchBar.querySelector('form');
-    const searchInput = searchBar.querySelector('input[name="q"]');
-    
-    // Expand search bar when clicked
-    searchBar.addEventListener('click', function() {
-      searchBar.classList.add('expanded');
-      searchInput.focus();
-    });
-    
-    // Handle form submission
-    searchForm.addEventListener('submit', function(e) {
-      if (!searchInput.value.trim()) {
-        e.preventDefault();
-        return;
-      }
-    });
-    
-    // Collapse search bar when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!searchBar.contains(event.target)) {
-        searchBar.classList.remove('expanded');
-        searchInput.blur();
-      }
-    });
-    
-    // Keep expanded when input is focused
-    searchInput.addEventListener('focus', function() {
-      searchBar.classList.add('expanded');
-    });
-    
-    // Collapse when input loses focus
-    searchInput.addEventListener('blur', function() {
-      // Small delay to allow for clicking outside
-      setTimeout(() => {
-        if (!searchBar.contains(document.activeElement)) {
-          searchBar.classList.remove('expanded');
-        }
-      }, 100);
-    });
+    // Search functionality moved to dedicated search page
   });
 </script>
 </body>

@@ -1,0 +1,133 @@
+---
+layout: default
+title: Search
+---
+
+<div class="search-page">
+  <div class="search-header">
+    <h1>Search</h1>
+    <p>Find what you're looking for across all my content</p>
+  </div>
+  
+  <div class="search-container">
+    <div id="search-input"></div>
+  </div>
+</div>
+
+<!-- Algolia DocSearch v3 -->
+<script type="module">
+  import docsearch from 'https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/esm/index.js';
+  import 'https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.css';
+
+  docsearch({
+    container: '#search-input',
+    appId: 'ZKBJX25WUV',
+    indexName: 'Glitched.',
+    apiKey: '7cee6234bcbedf60f3046950f9e0c0e9',
+    placeholder: 'Search for posts, projects, or topics...',
+    searchParameters: {
+      filters: 'type:post OR type:page'
+    }
+  });
+</script>
+
+<style>
+.search-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.search-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.search-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: var(--text);
+}
+
+.search-header p {
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.search-container {
+  background: var(--bg-2);
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#search-input:focus {
+  border-color: var(--snow-brown);
+}
+
+/* DocSearch v3 styling */
+.DocSearch-Container {
+  z-index: 1000;
+}
+
+.DocSearch-Modal {
+  background: var(--bg);
+  border: 1px solid var(--primary);
+}
+
+.DocSearch-Input {
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--primary);
+}
+
+.DocSearch-Input:focus {
+  border-color: var(--snow-brown);
+}
+
+.DocSearch-Hit {
+  border-bottom: 1px solid var(--primary);
+}
+
+.DocSearch-Hit:hover {
+  background: var(--bg-2);
+}
+
+.DocSearch-Hit-source {
+  color: var(--snow-brown);
+  font-weight: 600;
+}
+
+.DocSearch-Hit-title {
+  color: var(--text);
+}
+
+.DocSearch-Hit-path {
+  color: var(--muted);
+}
+
+.DocSearch-Button {
+  background: var(--bg-2);
+  border: 1px solid var(--primary);
+  color: var(--text);
+}
+
+.DocSearch-Button:hover {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+</style>

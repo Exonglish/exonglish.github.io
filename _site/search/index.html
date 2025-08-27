@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Contact · Glitched.</title>
+  <title>Search · Glitched.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Modern, sharp template powered by Jekyll">
   <link href="/styles.css" rel="stylesheet">
@@ -52,108 +52,134 @@
 </header>
 
 <main class="page">
-  <div class="contact-container">
-  <!-- Contact page header -->
-  <div class="contact-header">
-    <h1>Let's Create Something Amazing!</h1>
-    <p>Have a project in mind? I'd love to hear about it.</p>
+  <div class="search-page">
+  <div class="search-header">
+    <h1>Search</h1>
+    <p>Find what you're looking for across all my content</p>
   </div>
-
-  <!-- Contact form - where people can message me -->
-  <form id="contact-form" action="https://formspree.io/f/xrblwqqg" method="POST" class="contact-form">
-    <div class="form-header">
-      <h3>Drop me a line</h3>
-      <p>I'll get back to you as soon as possible!</p>
-    </div>
-    
-    <div class="form-row">
-      <div class="form-field">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" class="form-input" required>
-      </div>
-      <div class="form-field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="form-input" required>
-      </div>
-    </div>
-    
-    <div class="form-field">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
-    </div>
-    
-    <div class="form-submit">
-      <button type="submit" class="submit-btn">
-        <span class="btn-text">Send Message</span>
-      </button>
-    </div>
-  </form>
-</div>
-
-<!-- Success popup - shows when message is sent -->
-<div id="success-overlay" class="success-overlay">
-  <div class="success-card">
-    <div class="success-icon"></div>
-    <h2 class="success-title">Message Sent!</h2>
-    <p class="success-text">Thank you for reaching out. I'll get back to you within 24 hours.</p>
-    <button onclick="closeSuccessModal()" class="close-btn">Close</button>
+  
+  <div class="search-container">
+    <div id="search-input"></div>
   </div>
 </div>
 
-<script>
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const form = this;
-  const submitButton = form.querySelector('.submit-btn');
-  const originalText = submitButton.querySelector('.btn-text').textContent;
-  
-  // Show loading state
-  submitButton.querySelector('.btn-text').textContent = 'Sending...';
-  submitButton.disabled = true;
-  
-  // Get form data
-  const formData = new FormData(form);
-  
-  // Submit to Formspree
-  fetch(form.action, {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
+<!-- Algolia DocSearch v3 -->
+<script type="module">
+  import docsearch from 'https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/esm/index.js';
+  import 'https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.css';
+
+  docsearch({
+    container: '#search-input',
+    appId: 'ZKBJX25WUV',
+    indexName: 'Glitched.',
+    apiKey: '7cee6234bcbedf60f3046950f9e0c0e9',
+    placeholder: 'Search for posts, projects, or topics...',
+    searchParameters: {
+      filters: 'type:post OR type:page'
     }
-  })
-  .then(response => {
-    if (response.ok) {
-      // Show success modal
-      document.getElementById('success-overlay').classList.add('show');
-      form.reset();
-    } else {
-      throw new Error('Something went wrong');
-    }
-  })
-  .catch(error => {
-    // Show error message
-    alert('Sorry, there was an error sending your message. Please try again.');
-  })
-  .finally(() => {
-    // Reset button
-    submitButton.querySelector('.btn-text').textContent = originalText;
-    submitButton.disabled = false;
   });
-});
+</script>
 
-function closeSuccessModal() {
-  document.getElementById('success-overlay').classList.remove('show');
+<style>
+.search-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
 }
 
-// Close modal when clicking outside
-document.getElementById('success-overlay').addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeSuccessModal();
-  }
-});
-</script>
+.search-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.search-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: var(--text);
+}
+
+.search-header p {
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.search-container {
+  background: var(--bg-2);
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#search-input:focus {
+  border-color: var(--snow-brown);
+}
+
+/* DocSearch v3 styling */
+.DocSearch-Container {
+  z-index: 1000;
+}
+
+.DocSearch-Modal {
+  background: var(--bg);
+  border: 1px solid var(--primary);
+}
+
+.DocSearch-Input {
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--primary);
+}
+
+.DocSearch-Input:focus {
+  border-color: var(--snow-brown);
+}
+
+.DocSearch-Hit {
+  border-bottom: 1px solid var(--primary);
+}
+
+.DocSearch-Hit:hover {
+  background: var(--bg-2);
+}
+
+.DocSearch-Hit-source {
+  color: var(--snow-brown);
+  font-weight: 600;
+}
+
+.DocSearch-Hit-title {
+  color: var(--text);
+}
+
+.DocSearch-Hit-path {
+  color: var(--muted);
+}
+
+.DocSearch-Button {
+  background: var(--bg-2);
+  border: 1px solid var(--primary);
+  color: var(--text);
+}
+
+.DocSearch-Button:hover {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+</style>
 
 </main>
 

@@ -19,7 +19,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - footer-styles.html
-  - vendor
 
 # GitHub Pages safe mode (no custom plugins)
 safe: true

@@ -51,24 +51,163 @@
 </header>
 
 <main class="page">
-  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="/pagefind/pagefind-ui.js"></script>
-
-<div class="search-page">
+  <div class="search-page">
   <div class="search-header">
     <h1 class="lvl0" id="search">Search</h1>
     <p>Find what you're looking for across all my content</p>
   </div>
   
   <div class="search-container">
-    <div id="search"></div>
+    <div class="search-input-wrapper">
+      <input type="text" id="search-trigger" placeholder="Search for posts, projects, or topics..." autofocus>
+    </div>
+    <div id="search-results"></div>
   </div>
 </div>
 
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        new PagefindUI({ element: "#search", showSubResults: true });
+
+
+<script type="text/javascript">
+  // Simple client-side search functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-trigger');
+    const searchResults = document.getElementById('search-results');
+    
+    // Get all posts data from Jekyll
+    const posts = [
+      
+      {
+        title: "ServiceNow Notification Templates",
+        url: "/posts/servicenow-notification-templates/",
+        excerpt: "A collection of modern, professional HTML email templates for ServiceNow notifications. Five different styles inspired by popular brands to make your notifications stand out.",
+        date: "August 21, 2025",
+        category: "ServiceNow",
+        tags: ["servicenow", "email", "templates", "notifications", "html"]
+      },
+      
+      {
+        title: "Microsoft Says Password Expiry Makes You Less Secure",
+        url: "/posts/microsoft-password-expiry-security-myth/",
+        excerpt: "Microsoft&#39;s research reveals that forcing password changes actually makes systems less secure. Here&#39;s why the traditional wisdom about password expiry is wrong.",
+        date: "December 20, 2024",
+        category: "Security",
+        tags: ["security", "passwords", "microsoft", "best-practices", "cybersecurity", "password-policy"]
+      },
+      
+      {
+        title: "Do We Really Need REQs in ServiceNow?",
+        url: "/posts/do-we-really-need-reqs-in-servicenow/",
+        excerpt: "A deep dive into whether ServiceNow Requests (REQs) are always necessary, exploring the pros and cons of skipping them and when it might actually work.",
+        date: "December 19, 2024",
+        category: "ServiceNow",
+        tags: ["servicenow", "req", "ritm", "task", "best-practices", "architecture", "request-management", "servicenow-admin"]
+      }
+      
+    ];
+    
+    // Get all pages data
+    const pages = [
+      
+      
+      {
+        title: "About",
+        url: "/about/",
+        excerpt: "About",
+        category: "Page"
+      },
+      
+      
+      
+      {
+        title: "Blog",
+        url: "/blog/",
+        excerpt: "Blog",
+        category: "Page"
+      },
+      
+      
+      
+      {
+        title: "Contact",
+        url: "/contact/",
+        excerpt: "Contact",
+        category: "Page"
+      },
+      
+      
+      
+      {
+        title: "Home",
+        url: "/",
+        excerpt: "Home",
+        category: "Page"
+      },
+      
+      
+      
+      
+      
+      
+      
+      
+    ];
+    
+    const allContent = [...posts, ...pages];
+    
+    function searchContent(query) {
+      if (!query.trim()) {
+        searchResults.innerHTML = '';
+        return;
+      }
+      
+      const searchTerm = query.toLowerCase();
+      const results = allContent.filter(item => {
+        return item.title.toLowerCase().includes(searchTerm) ||
+               item.excerpt.toLowerCase().includes(searchTerm) ||
+               item.category.toLowerCase().includes(searchTerm) ||
+               (item.tags && item.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
+      });
+      
+      displayResults(results);
+    }
+    
+    function displayResults(results) {
+      if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">No results found. Try a different search term.</div>';
+        return;
+      }
+      
+      const resultsHtml = results.map(item => `
+        <div class="search-result">
+          <h3><a href="${item.url}">${item.title}</a></h3>
+          <p class="result-excerpt">${item.excerpt}</p>
+          <div class="result-meta">
+            <span class="result-category">${item.category}</span>
+            ${item.date ? `<span class="result-date">${item.date}</span>` : ''}
+          </div>
+        </div>
+      `).join('');
+      
+      searchResults.innerHTML = resultsHtml;
+    }
+    
+    // Search as user types
+    searchInput.addEventListener('input', function() {
+      searchContent(this.value);
     });
+    
+    // Search on Enter key
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        searchContent(this.value);
+      }
+    });
+  });
+  
+  // Add error handling
+  window.addEventListener('error', function(e) {
+    console.error('Search error:', e);
+  });
 </script>
 
 <style>
@@ -102,6 +241,97 @@
   border-radius: 12px;
   padding: 32px;
 }
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#search-trigger {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+#search-trigger:focus {
+  border-color: var(--snow-brown);
+  box-shadow: 0 0 0 2px rgba(139,115,85,0.1);
+}
+
+#search-trigger::placeholder {
+  color: var(--muted);
+}
+
+#search-results {
+  margin-top: 24px;
+}
+
+.search-result {
+  padding: 16px;
+  border-bottom: 1px solid var(--primary);
+  transition: background-color 0.2s;
+}
+
+.search-result:hover {
+  background: var(--bg);
+}
+
+.search-result:last-child {
+  border-bottom: none;
+}
+
+.search-result h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.search-result h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.search-result h3 a:hover {
+  color: var(--snow-brown);
+}
+
+.result-excerpt {
+  margin: 0 0 12px 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.result-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.result-category {
+  background: var(--snow-brown);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.no-results {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  padding: 32px;
+}
+
+
 </style>
 
 </main>

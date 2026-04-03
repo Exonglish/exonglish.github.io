@@ -1,0 +1,4 @@
+---
+layout: none
+---
+[{% for post in site.posts %}{"title":{{ post.title | jsonify }},"url":{{ post.url | relative_url | jsonify }},"content":{{ post.content | strip_html | jsonify }},"excerpt":{{ post.excerpt | strip_html | jsonify }},"date":{{ post.date | date: "%B %d, %Y" | jsonify }},"category":{{ post.category | default: "General" | jsonify }},"tags":{{ post.tags | jsonify }},"type":"post"}{% unless forloop.last %},{% endunless %}{% endfor %}]

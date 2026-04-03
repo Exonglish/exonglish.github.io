@@ -33,9 +33,12 @@
   --bg-2: #4a372f;
   --text: #f6f1e7;
   --muted: #b8a99e;
+  --primary: #5c4a3f;
+  --primary-ink: #f6f1e7;
   --ring: rgba(246,241,231,.18);
   --snow-beige: #3d2e26;
   --snow-brown: #a89070;
+  --snow-accent: #a89070;
   --snow-dark: #2a1f1a;
   --snow-light: #4a372f;
 }

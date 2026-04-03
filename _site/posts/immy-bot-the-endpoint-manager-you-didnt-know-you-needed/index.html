@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Microsoft Says Password Expiry Makes You Less Secure · Glitched.</title>
+  <title>Immy.bot: The Endpoint Manager You Didn't Know You Needed · Glitched.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Modern, sharp template powered by Jekyll">
 
@@ -254,20 +254,20 @@
   <article class="blog-post style-modern">
   <div class="post-hero">
     <div class="hero-left">
-      <h1 class="post-title">Microsoft Says Password Expiry Makes You Less Secure</h1>
-      <p class="post-subtitle">Why forcing password changes every 90 days actually hurts your security</p>
-      
+      <h1 class="post-title">Immy.bot: The Endpoint Manager You Didn't Know You Needed</h1>
+      <p class="post-subtitle">Smart software deployment that knows what's already on your machines</p>
+
       <div class="post-meta">
-        <time datetime="2024-12-20">December 20, 2024</time>
-        <span class="reading-time">3 min read</span>
+        <time datetime="2025-02-10">February 10, 2025</time>
+        <span class="reading-time">6 min read</span>
         <span class="difficulty">Beginner</span>
         <div class="categories">
-          <span class="category">Security</span>
-          <span class="category">Best Practices</span>
+          <span class="category">IT</span>
+          <span class="category">Automation</span>
         </div>
       </div>
     </div>
-    
+
     <div class="hero-right">
       <div class="table-of-contents">
         <div class="toc-header">
@@ -275,32 +275,39 @@
           <h3>What's This About?</h3>
         </div>
         <div class="toc-items">
-          <a href="#the-myth" class="toc-item">
+          <a href="#what-is-it" class="toc-item">
             <div class="toc-number">01</div>
             <div class="toc-content">
-              <span class="toc-title">The Mind-Blowing Revelation</span>
-              <span class="toc-desc">How my manager changed everything</span>
+              <span class="toc-title">What Is Immy.bot?</span>
+              <span class="toc-desc">Not just another RMM tool</span>
             </div>
           </a>
-          <a href="#microsoft-research" class="toc-item">
+          <a href="#how-it-thinks" class="toc-item">
             <div class="toc-number">02</div>
             <div class="toc-content">
-              <span class="toc-title">Why Password Expiry Backfires</span>
-              <span class="toc-desc">The predictable human behavior</span>
+              <span class="toc-title">How It Thinks</span>
+              <span class="toc-desc">Desired state vs. push and pray</span>
             </div>
           </a>
-          <a href="#better-approaches" class="toc-item">
+          <a href="#onboarding" class="toc-item">
             <div class="toc-number">03</div>
             <div class="toc-content">
-              <span class="toc-title">What Actually Works</span>
-              <span class="toc-desc">Better security approaches</span>
+              <span class="toc-title">Onboarding Sessions</span>
+              <span class="toc-desc">The feature that changes everything</span>
+            </div>
+          </a>
+          <a href="#software-library" class="toc-item">
+            <div class="toc-number">04</div>
+            <div class="toc-content">
+              <span class="toc-title">The Software Library</span>
+              <span class="toc-desc">Curated, version-aware deployments</span>
             </div>
           </a>
           <a href="#takeaway" class="toc-item">
-            <div class="toc-number">04</div>
+            <div class="toc-number">05</div>
             <div class="toc-content">
               <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Four years later, still secure</span>
+              <span class="toc-desc">Who it's really for</span>
             </div>
           </a>
         </div>
@@ -310,51 +317,69 @@
 
   <div class="post-content">
     <div class="content-intro">
-      <p class="lead">I remember about 3 years ago my manager tapped me on the shoulder and said "You know expiring your password is actually less secure than just having a really strong password" and I noticed that this was the first place I ever worked at that didn't have a password expiration period. I was blown away and for the next 4 years working here I have never changed my password.</p>
+      <p class="lead">I've used a handful of RMM tools over the years and the story is usually the same: you pick a script, you push it, you hope it works, and then you spend the next hour troubleshooting why it installed the wrong version on half the machines. Immy.bot flips that model entirely. It doesn't just deploy software — it understands your endpoints well enough to know what should be there, what's already there, and what needs to change. That's a fundamentally different approach, and once you've used it, going back feels barbaric.</p>
     </div>
 
-    <section class="content-section" id="the-myth">
-      <h2>The Mind-Blowing Revelation</h2>
-      <p>That conversation completely changed how I thought about password security. For years, I'd been conditioned to believe that forcing password changes every 90 days was a security best practice. Every company I'd worked for had some version of this policy - "Passwords expire every 90 days" or "You must change your password quarterly."</p>
+    <section class="content-section" id="what-is-it">
+      <h2>What Is Immy.bot?</h2>
+      <p>Immy.bot is a SaaS endpoint management platform built primarily for MSPs and internal IT teams managing Windows environments. It handles software deployment, Windows updates, device onboarding, and recurring maintenance tasks — but the thing that makes it different is that it operates on a <strong>desired state model</strong>.</p>
 
-      <p>But here I was, at a company that didn't force password changes at all. And according to my manager, this was actually more secure. My mind was blown.</p>
+      <p>Instead of saying "run this script on these machines," you say "all machines assigned to this client should have these applications at these versions, configured this way." Immy.bot figures out what's already there, compares it against what should be there, and only does what's actually necessary.</p>
+
+      <p>It's not an RMM. It integrates with your existing RMM (ConnectWise Automate, NinjaRMM, Datto, and others) and uses that as a transport layer to reach endpoints. It also integrates with PSA tools like ConnectWise Manage and HaloPSA so you can tie deployments back to your clients and ticketing. Think of it as the orchestration layer that sits on top of your existing tools and makes them smarter.</p>
     </section>
 
-    <section class="content-section" id="microsoft-research">
-      <h2>Why Password Expiry Backfires</h2>
-      <p>It turns out that Microsoft's research team has been saying this for years. When you force people to change passwords frequently, they do predictable things:</p>
+    <section class="content-section" id="how-it-thinks">
+      <h2>How It Thinks</h2>
+      <p>This is the part that took me a moment to fully appreciate. Most deployment tools ask: <em>"Did the script run?"</em> Immy.bot asks: <em>"Is the machine in the state it should be in?"</em></p>
+
+      <p>When Immy.bot evaluates an endpoint, it runs a detection script for each piece of software — not to install it, but just to check what's there and what version it is. Based on that, it decides whether to install, update, reinstall, or do nothing. The detection and the installation are separate steps, and that separation matters.</p>
+
+      <p>This means:</p>
 
       <ul>
-        <li>Use patterns like Password1, Password2, Password3</li>
-        <li>Make minimal changes like MyPassword → MyPassw0rd</li>
-        <li>Write passwords down because they're hard to remember</li>
-        <li>Use the same password across multiple accounts</li>
+        <li>If a machine already has the right version installed, Immy skips it. No unnecessary reinstalls.</li>
+        <li>If a machine has an older version, Immy updates it. Not reinstalls from scratch — updates.</li>
+        <li>If a machine has a newer version than what's specified, Immy can be configured to leave it alone or downgrade, depending on your policy.</li>
+        <li>If the software is present but misconfigured, Immy can run a configuration script on top of it without touching the installation.</li>
       </ul>
 
-      <p>Microsoft found that users forced to change passwords every 90 days are 2.5 times more likely to use weaker passwords than users who aren't forced to change them regularly.</p>
+      <p>That granularity is what makes it feel less like a script runner and more like something that actually understands your environment.</p>
 
-      <p>The logic is simple: if an attacker gets your password, they use it immediately. They don't wait around for 90 days. And if they can't get in right away, they move on to other targets.</p>
+      <div class="callout callout-info">
+        <strong>The big difference:</strong> Traditional RMM deployments are fire-and-forget. Immy.bot is idempotent — you can run it a hundred times and it'll only make changes when something is actually out of state.
+      </div>
     </section>
 
-    <section class="content-section" id="better-approaches">
-      <h2>What Actually Works</h2>
-      <p>Instead of forcing password changes, focus on:</p>
+    <section class="content-section" id="onboarding">
+      <h2>Onboarding Sessions</h2>
+      <p>If I had to pick one feature that makes Immy.bot worth it, it's Onboarding Sessions. This is the workflow that runs when a new device shows up in your environment.</p>
 
-      <ul>
-        <li><strong>Strong passwords from the start</strong> - 12+ characters, unique for each account</li>
-        <li><strong>Multi-factor authentication (MFA)</strong> - Microsoft found this blocks 99.9% of attacks</li>
-        <li><strong>Monitoring for compromised passwords</strong> - change only when there's evidence of breach</li>
-        <li><strong>User education</strong> - teach people about password security best practices</li>
-      </ul>
+      <p>When you connect a new machine to Immy.bot, you trigger an onboarding session. Immy walks through a checklist: it detects the machine, identifies the tenant it belongs to (based on your integrations), and then presents you with a screen showing everything it's about to do. You can review the list, adjust anything, and then kick it off.</p>
+
+      <p>The session then runs through every software and configuration assignment tied to that tenant — installing what needs to be installed, configuring what needs to be configured, running Windows updates, setting up any standard tooling. All in one automated flow.</p>
+
+      <p>What this replaces: the person on the help desk who has a checklist doc in a shared drive, manually installing things one by one, occasionally forgetting step 7, and then getting a ticket three days later because the VPN client isn't there. Onboarding sessions replace that entire process with something repeatable and consistent every single time.</p>
+    </section>
+
+    <section class="content-section" id="software-library">
+      <h2>The Software Library</h2>
+      <p>Immy.bot maintains a global software library — a curated collection of popular applications with pre-built detection scripts, installation scripts, and upgrade logic already written and maintained by the Immy team. You don't have to figure out how to silently install Zoom or detect what version of 7-Zip is present. It's already there.</p>
+
+      <p>The library covers the usual suspects — Adobe Reader, Chrome, Firefox, Microsoft 365, VPN clients, monitoring agents, and a lot more. Each entry in the library stays updated as new versions are released, so when Adobe drops a security patch, the library gets updated and Immy knows there's a newer version it can push out.</p>
+
+      <p>For software that's not in the global library — proprietary tools, internal apps, niche utilities — you can write your own software definitions using PowerShell. The detection script and installation script pattern is straightforward, and once you've written a few you get the hang of it quickly.</p>
+
+      <p>You can also set version pinning per tenant. If one client needs to stay on an older version of something for compatibility reasons, you pin them while everyone else gets updated. That kind of per-tenant control without managing separate scripts for each client is genuinely useful at scale.</p>
     </section>
 
     <section class="content-section" id="takeaway">
       <h2>My Takeaway</h2>
-      <p>Four years later, I still haven't changed my password at that company. And you know what? I feel more secure than I ever did at places that forced quarterly changes.</p>
+      <p>Immy.bot is squarely aimed at MSPs, and it shows — the multi-tenant architecture, the PSA and RMM integrations, the per-client software assignments. But even if you're managing a single internal environment, the onboarding session workflow and the desired state model are compelling enough to justify it.</p>
 
-      <p>Sometimes the best security practices are the ones that work with human nature, not against it. A strong password that never changes is better than weak passwords that change every 90 days.</p>
+      <p>The pricing model is per-endpoint-per-month, which adds up if you're managing thousands of machines, but for mid-size environments the time savings on onboarding alone tend to justify the cost pretty fast.</p>
 
-      <p>What do you think? Have you worked somewhere that doesn't force password changes?</p>
+      <p>If you've ever sat at a desk doing a manual Windows setup while a checklist doc mocks you from the other monitor — Immy.bot is the fix. It won't replace your RMM, but it'll make your deployments smarter and your onboarding process something you're not embarrassed to talk about.</p>
     </section>
 
     <div class="cta-section">
@@ -365,21 +390,21 @@
       <h2>Helpful Resources</h2>
       <div class="resources-grid">
         <div class="resource-card">
-          <h3>Microsoft Security Blog</h3>
-          <p>Official Microsoft research on password policies and security best practices.</p>
-          <a href="https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-percent-of-account-hijacking/" target="_blank" rel="noopener noreferrer" class="resource-link">Read Research →</a>
+          <h3>Immy.bot Official Site</h3>
+          <p>The main site with pricing, feature overview, and a link to request a demo or start a trial.</p>
+          <a href="https://immy.bot" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Immy.bot →</a>
         </div>
-        
+
         <div class="resource-card">
-          <h3>NIST Password Guidelines</h3>
-          <p>National Institute of Standards and Technology guidelines on password security.</p>
-          <a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank" rel="noopener noreferrer" class="resource-link">Read Guidelines →</a>
+          <h3>Immy.bot Docs</h3>
+          <p>Full documentation covering software definitions, onboarding sessions, integrations, and scripting reference.</p>
+          <a href="https://docs.immy.bot" target="_blank" rel="noopener noreferrer" class="resource-link">Read the Docs →</a>
         </div>
-        
+
         <div class="resource-card">
-          <h3>Have I Been Pwned</h3>
-          <p>Check if your email or password has been compromised in a data breach.</p>
-          <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="resource-link">Check Your Data →</a>
+          <h3>Immy.bot Community</h3>
+          <p>The Discord community where MSPs share scripts, workflows, and tips for getting the most out of the platform.</p>
+          <a href="https://discord.gg/immybot" target="_blank" rel="noopener noreferrer" class="resource-link">Join Community →</a>
         </div>
       </div>
     </section>
@@ -402,9 +427,7 @@
     align-items: start;
   }
 
-  .hero-left {
-    text-align: left;
-  }
+  .hero-left { text-align: left; }
 
   .hero-right {
     position: sticky;
@@ -435,9 +458,7 @@
     color: var(--muted);
   }
 
-  .post-meta time {
-    font-weight: 500;
-  }
+  .post-meta time { font-weight: 500; }
 
   .reading-time, .difficulty {
     background: var(--primary);
@@ -447,10 +468,7 @@
     font-weight: 600;
   }
 
-  .categories {
-    display: flex;
-    gap: 0.5rem;
-  }
+  .categories { display: flex; gap: 0.5rem; }
 
   .category {
     background: var(--pink);
@@ -469,7 +487,7 @@
     padding: 1.5rem;
     position: sticky;
     top: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   }
 
   .toc-header {
@@ -521,7 +539,7 @@
   .toc-item:hover {
     transform: translateX(4px);
     border-color: var(--primary);
-    box-shadow: 0 4px 16px rgba(139, 115, 85, 0.15);
+    box-shadow: 0 4px 16px rgba(139,115,85,0.15);
   }
 
   .toc-number {
@@ -558,9 +576,7 @@
     line-height: 1.3;
   }
 
-  .content-intro {
-    margin-bottom: 3rem;
-  }
+  .content-intro { margin-bottom: 3rem; }
 
   .lead {
     font-size: 1.2rem;
@@ -568,9 +584,7 @@
     line-height: 1.7;
   }
 
-  .content-section {
-    margin-bottom: 3rem;
-  }
+  .content-section { margin-bottom: 3rem; }
 
   .content-section h2 {
     color: var(--text);
@@ -591,7 +605,8 @@
     line-height: 1.7;
   }
 
-  .content-section ul {
+  .content-section ul,
+  .content-section ol {
     margin: 1.5rem 0;
     padding-left: 1.5rem;
   }
@@ -601,9 +616,20 @@
     line-height: 1.6;
   }
 
-  .content-section strong {
-    color: var(--text);
+  .content-section strong { color: var(--text); }
+
+  .callout {
+    border-left: 4px solid var(--snow-brown);
+    background: var(--bg-2);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted);
   }
+
+  .callout strong { color: var(--text); }
 
   .cta-section {
     text-align: center;
@@ -621,13 +647,11 @@
     transition: background-color 0.2s ease;
   }
 
-  .btn:hover {
-    background: #7a6347;
-  }
+  .btn:hover { background: #7a6347; }
 
   .resources-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
     margin-top: 1rem;
   }
@@ -642,7 +666,7 @@
 
   .resource-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.15);
+    box-shadow: 0 4px 12px rgba(139,115,85,0.15);
   }
 
   .resource-card h3 {
@@ -666,9 +690,7 @@
     font-size: 0.9rem;
   }
 
-  .resource-link:hover {
-    text-decoration: underline;
-  }
+  .resource-link:hover { text-decoration: underline; }
 
   @media (max-width: 768px) {
     .post-hero {
@@ -692,13 +714,8 @@
       margin: 0 0 1.5rem 0;
     }
 
-    .post-meta {
-      gap: 1rem;
-    }
-
-    .categories {
-      gap: 0.4rem;
-    }
+    .post-meta { gap: 1rem; }
+    .categories { gap: 0.4rem; }
 
     .category {
       font-size: 0.75rem;
@@ -722,13 +739,8 @@
       font-size: 1.25rem;
     }
 
-    .toc-header h3 {
-      font-size: 1.1rem;
-    }
-
-    .toc-items {
-      gap: 0.5rem;
-    }
+    .toc-header h3 { font-size: 1.1rem; }
+    .toc-items { gap: 0.5rem; }
 
     .toc-item {
       padding: 0.6rem;
@@ -741,18 +753,9 @@
       font-size: 0.75rem;
     }
 
-    .toc-title {
-      font-size: 0.9rem;
-    }
-
-    .toc-desc {
-      font-size: 0.75rem;
-    }
-
-    .resources-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
+    .toc-title { font-size: 0.9rem; }
+    .toc-desc { font-size: 0.75rem; }
+    .resources-grid { grid-template-columns: 1fr; gap: 1rem; }
   }
 </style>
 

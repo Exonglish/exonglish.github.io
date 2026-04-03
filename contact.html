@@ -4,19 +4,17 @@ title: Contact
 ---
 
 <div class="contact-container">
-  <!-- Contact page header -->
   <div class="contact-header">
     <h1 class="lvl0" id="contact">Let's Create Something Amazing!</h1>
-    <p>Have a project in mind? I'd love to hear about it.</p>
+    <p>Have a project in mind or just want to connect? I'd love to hear from you.</p>
   </div>
 
-  <!-- Contact form - where people can message me -->
   <form id="contact-form" action="https://formspree.io/f/xrblwqqg" method="POST" class="contact-form">
     <div class="form-header">
-      <h3 class="lvl1" id="contact-form">Drop me a line</h3>
+      <h3 class="lvl1" id="contact-form-heading">Drop me a line</h3>
       <p>I'll get back to you as soon as possible!</p>
     </div>
-    
+
     <div class="form-row">
       <div class="form-field">
         <label for="name">Name</label>
@@ -27,12 +25,12 @@ title: Contact
         <input type="email" id="email" name="email" class="form-input" required>
       </div>
     </div>
-    
+
     <div class="form-field">
       <label for="message">Message</label>
       <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
     </div>
-    
+
     <div class="form-submit">
       <button type="submit" class="submit-btn">
         <span class="btn-text">Send Message</span>
@@ -41,7 +39,7 @@ title: Contact
   </form>
 </div>
 
-<!-- Success popup - shows when message is sent -->
+<!-- Success modal -->
 <div id="success-overlay" class="success-overlay">
   <div class="success-card">
     <div class="success-icon"></div>
@@ -54,42 +52,30 @@ title: Contact
 <script>
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  
   const form = this;
   const submitButton = form.querySelector('.submit-btn');
-  const originalText = submitButton.querySelector('.btn-text').textContent;
-  
-  // Show loading state
-  submitButton.querySelector('.btn-text').textContent = 'Sending...';
+  const btnText = submitButton.querySelector('.btn-text');
+  const original = btnText.textContent;
+
+  btnText.textContent = 'Sending...';
   submitButton.disabled = true;
-  
-  // Get form data
-  const formData = new FormData(form);
-  
-  // Submit to Formspree
+
   fetch(form.action, {
     method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
   })
   .then(response => {
     if (response.ok) {
-      // Show success modal
       document.getElementById('success-overlay').classList.add('show');
       form.reset();
     } else {
-      throw new Error('Something went wrong');
+      throw new Error('error');
     }
   })
-  .catch(error => {
-    // Show error message
-    alert('Sorry, there was an error sending your message. Please try again.');
-  })
+  .catch(() => alert('Sorry, something went wrong. Please try again.'))
   .finally(() => {
-    // Reset button
-    submitButton.querySelector('.btn-text').textContent = originalText;
+    btnText.textContent = original;
     submitButton.disabled = false;
   });
 });
@@ -98,10 +84,141 @@ function closeSuccessModal() {
   document.getElementById('success-overlay').classList.remove('show');
 }
 
-// Close modal when clicking outside
 document.getElementById('success-overlay').addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeSuccessModal();
-  }
+  if (e.target === this) closeSuccessModal();
 });
 </script>
+
+<style>
+.contact-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.contact-header h1 {
+  font-size: 42px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  background: linear-gradient(135deg, var(--snow-brown), #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-header p {
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.contact-form {
+  background: var(--bg-2);
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid var(--primary);
+}
+
+.form-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--primary);
+}
+
+.form-header h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 6px 0;
+  color: var(--text);
+}
+
+.form-header p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.form-field:last-child { margin-bottom: 0; }
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-input {
+  padding: 12px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--snow-brown);
+  box-shadow: 0 0 0 3px rgba(139,115,85,0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.form-submit { margin-top: 8px; }
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--snow-brown);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.submit-btn:hover {
+  background: #7a6347;
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  .contact-form { padding: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>

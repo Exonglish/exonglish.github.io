@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Microsoft Says Password Expiry Makes You Less Secure · Glitched.</title>
+  <title>ServiceNow Build Agent: CI/CD for Your Instance · Glitched.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Modern, sharp template powered by Jekyll">
 
@@ -254,20 +254,20 @@
   <article class="blog-post style-modern">
   <div class="post-hero">
     <div class="hero-left">
-      <h1 class="post-title">Microsoft Says Password Expiry Makes You Less Secure</h1>
-      <p class="post-subtitle">Why forcing password changes every 90 days actually hurts your security</p>
-      
+      <h1 class="post-title">ServiceNow Build Agent: CI/CD for Your Instance</h1>
+      <p class="post-subtitle">Stop manually promoting apps and let the pipeline do the heavy lifting</p>
+
       <div class="post-meta">
-        <time datetime="2024-12-20">December 20, 2024</time>
-        <span class="reading-time">3 min read</span>
-        <span class="difficulty">Beginner</span>
+        <time datetime="2025-01-15">January 15, 2025</time>
+        <span class="reading-time">7 min read</span>
+        <span class="difficulty">Intermediate</span>
         <div class="categories">
-          <span class="category">Security</span>
-          <span class="category">Best Practices</span>
+          <span class="category">ServiceNow</span>
+          <span class="category">DevOps</span>
         </div>
       </div>
     </div>
-    
+
     <div class="hero-right">
       <div class="table-of-contents">
         <div class="toc-header">
@@ -275,32 +275,39 @@
           <h3>What's This About?</h3>
         </div>
         <div class="toc-items">
-          <a href="#the-myth" class="toc-item">
+          <a href="#what-is-it" class="toc-item">
             <div class="toc-number">01</div>
             <div class="toc-content">
-              <span class="toc-title">The Mind-Blowing Revelation</span>
-              <span class="toc-desc">How my manager changed everything</span>
+              <span class="toc-title">What Is the Build Agent?</span>
+              <span class="toc-desc">The problem it solves</span>
             </div>
           </a>
-          <a href="#microsoft-research" class="toc-item">
+          <a href="#how-it-works" class="toc-item">
             <div class="toc-number">02</div>
             <div class="toc-content">
-              <span class="toc-title">Why Password Expiry Backfires</span>
-              <span class="toc-desc">The predictable human behavior</span>
+              <span class="toc-title">How It Actually Works</span>
+              <span class="toc-desc">Pipelines, stages, and environments</span>
             </div>
           </a>
-          <a href="#better-approaches" class="toc-item">
+          <a href="#setup" class="toc-item">
             <div class="toc-number">03</div>
             <div class="toc-content">
-              <span class="toc-title">What Actually Works</span>
-              <span class="toc-desc">Better security approaches</span>
+              <span class="toc-title">Getting It Set Up</span>
+              <span class="toc-desc">What you need to get started</span>
+            </div>
+          </a>
+          <a href="#gotchas" class="toc-item">
+            <div class="toc-number">04</div>
+            <div class="toc-content">
+              <span class="toc-title">Gotchas I've Hit</span>
+              <span class="toc-desc">Things that will catch you off guard</span>
             </div>
           </a>
           <a href="#takeaway" class="toc-item">
-            <div class="toc-number">04</div>
+            <div class="toc-number">05</div>
             <div class="toc-content">
               <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Four years later, still secure</span>
+              <span class="toc-desc">Is it worth it?</span>
             </div>
           </a>
         </div>
@@ -310,51 +317,84 @@
 
   <div class="post-content">
     <div class="content-intro">
-      <p class="lead">I remember about 3 years ago my manager tapped me on the shoulder and said "You know expiring your password is actually less secure than just having a really strong password" and I noticed that this was the first place I ever worked at that didn't have a password expiration period. I was blown away and for the next 4 years working here I have never changed my password.</p>
+      <p class="lead">For years, promoting a ServiceNow application meant opening an Update Set, exporting an XML file, logging into your next environment, importing it, previewing it, committing it, and then holding your breath. If you had three environments — dev, test, prod — you did that dance twice every single deployment. The Build Agent is ServiceNow's answer to that pain, and once you actually get it running, you'll wonder how you lived without it.</p>
     </div>
 
-    <section class="content-section" id="the-myth">
-      <h2>The Mind-Blowing Revelation</h2>
-      <p>That conversation completely changed how I thought about password security. For years, I'd been conditioned to believe that forcing password changes every 90 days was a security best practice. Every company I'd worked for had some version of this policy - "Passwords expire every 90 days" or "You must change your password quarterly."</p>
+    <section class="content-section" id="what-is-it">
+      <h2>What Is the Build Agent?</h2>
+      <p>The Build Agent is a component of ServiceNow's App Engine ecosystem that enables automated CI/CD pipelines for applications built inside your instance. Instead of manually exporting and importing Update Sets, you define a pipeline — a series of environments and gates — and let ServiceNow handle the promotion automatically.</p>
 
-      <p>But here I was, at a company that didn't force password changes at all. And according to my manager, this was actually more secure. My mind was blown.</p>
-    </section>
-
-    <section class="content-section" id="microsoft-research">
-      <h2>Why Password Expiry Backfires</h2>
-      <p>It turns out that Microsoft's research team has been saying this for years. When you force people to change passwords frequently, they do predictable things:</p>
+      <p>It sits alongside a few other pieces you might already know:</p>
 
       <ul>
-        <li>Use patterns like Password1, Password2, Password3</li>
-        <li>Make minimal changes like MyPassword → MyPassw0rd</li>
-        <li>Write passwords down because they're hard to remember</li>
-        <li>Use the same password across multiple accounts</li>
+        <li><strong>App Engine Studio (AES)</strong> — the low-code builder where your apps live</li>
+        <li><strong>Pipeline &amp; Deployment spoke</strong> — the automation that moves your app between instances</li>
+        <li><strong>Build Agent</strong> — the worker process that actually executes the pipeline steps on a MID Server</li>
       </ul>
 
-      <p>Microsoft found that users forced to change passwords every 90 days are 2.5 times more likely to use weaker passwords than users who aren't forced to change them regularly.</p>
+      <p>The "agent" part is important — it's not just a configuration inside ServiceNow. It's a process that runs on a MID Server and does the actual work of versioning, building, and deploying your app packages between instances. Think of it like a Jenkins agent, but baked into your ServiceNow architecture.</p>
 
-      <p>The logic is simple: if an attacker gets your password, they use it immediately. They don't wait around for 90 days. And if they can't get in right away, they move on to other targets.</p>
+      <div class="callout callout-info">
+        <strong>Worth knowing:</strong> The Build Agent requires a MID Server with network access to all of your target environments. If your instances are siloed or behind strict firewalls, that's your first conversation to have before anything else.
+      </div>
     </section>
 
-    <section class="content-section" id="better-approaches">
-      <h2>What Actually Works</h2>
-      <p>Instead of forcing password changes, focus on:</p>
+    <section class="content-section" id="how-it-works">
+      <h2>How It Actually Works</h2>
+      <p>Here's the flow from commit to production:</p>
+
+      <ol>
+        <li>A developer finishes work on an app in App Engine Studio on dev and clicks "Submit for deployment"</li>
+        <li>That triggers a pipeline run — a defined sequence of stages (dev → test → prod)</li>
+        <li>The Build Agent picks up the job via the MID Server and packages the app into a versioned artifact</li>
+        <li>It installs that artifact into the next environment (test)</li>
+        <li>Automated tests run — ATF test suites you've mapped to the pipeline</li>
+        <li>If tests pass, it waits for approval (if you've configured a gate) or proceeds automatically</li>
+        <li>Same process repeats into production</li>
+      </ol>
+
+      <p>The key concept here is the <strong>pipeline definition</strong>. You set this up once — define your environments, the order they get promoted through, what tests run at each stage, and whether human approval is required before moving forward. After that, every deployment follows the same path automatically.</p>
+
+      <p>You can also define environment-specific properties in the pipeline so that things like connection aliases and integration credentials get swapped out correctly when the app lands in a new instance. This is huge — it means you're not manually hunting down references that point to the wrong place after a promotion.</p>
+    </section>
+
+    <section class="content-section" id="setup">
+      <h2>Getting It Set Up</h2>
+      <p>Before you can run any pipelines, you need a few things in place:</p>
+
+      <h3>1. A MID Server with the right plugins</h3>
+      <p>Your MID Server needs the App Engine Pipeline extensions. Install the <strong>CI/CD spoke</strong> (com.snc.cicd) on your source instance and make sure the MID Server is running a version compatible with your instance release. This is the step most people skip over in the docs and then wonder why nothing works.</p>
+
+      <h3>2. Credentialed connections between instances</h3>
+      <p>The pipeline needs OAuth credentials to authenticate into each target environment. You'll set up a Connection &amp; Credential alias for each instance — dev, test, prod — and the MID Server uses those to install artifacts remotely. Use a dedicated service account for this, not your personal admin account.</p>
+
+      <h3>3. App Engine Studio on every instance</h3>
+      <p>AES needs to be installed on every environment in your pipeline, not just dev. This catches people off guard — the receiving instance needs to be able to accept and run the deployed package, which requires AES be present.</p>
+
+      <h3>4. ATF tests (optional but highly recommended)</h3>
+      <p>You don't have to have Automated Test Framework tests to use the Build Agent, but you're leaving a lot of value on the table if you don't. Set up at least basic smoke tests for your apps and map them to your pipeline stages. That's what turns this from a fancy export tool into an actual quality gate.</p>
+    </section>
+
+    <section class="content-section" id="gotchas">
+      <h2>Gotchas I've Hit</h2>
+      <p>Nothing in ServiceNow ever goes entirely smoothly the first time, and the Build Agent is no exception. Here's what's bitten me:</p>
 
       <ul>
-        <li><strong>Strong passwords from the start</strong> - 12+ characters, unique for each account</li>
-        <li><strong>Multi-factor authentication (MFA)</strong> - Microsoft found this blocks 99.9% of attacks</li>
-        <li><strong>Monitoring for compromised passwords</strong> - change only when there's evidence of breach</li>
-        <li><strong>User education</strong> - teach people about password security best practices</li>
+        <li><strong>MID Server connectivity</strong> — If the MID Server can't reach your target instance on port 443, the pipeline just silently fails or times out. Check your network paths first, before you touch any configuration.</li>
+        <li><strong>App versioning conflicts</strong> — If someone manually installed a version of the app in the target environment outside of the pipeline, you'll get version conflicts. The pipeline expects to be the single source of truth. Don't mix manual and automated deployments.</li>
+        <li><strong>Stale credentials</strong> — OAuth tokens expire. If a pipeline randomly fails weeks after it was working fine, check the credential alias first. Rotating the token and updating the alias usually fixes it immediately.</li>
+        <li><strong>Scope collisions</strong> — If your app shares a scope name with something already on the target instance (even something unrelated), the install can fail in confusing ways. Scope naming conventions matter more than you think.</li>
+        <li><strong>ATF environment mismatch</strong> — Tests written in dev that reference dev-specific data or users will fail in test. Build your ATF tests to be environment-agnostic or use test data that exists everywhere.</li>
       </ul>
     </section>
 
     <section class="content-section" id="takeaway">
       <h2>My Takeaway</h2>
-      <p>Four years later, I still haven't changed my password at that company. And you know what? I feel more secure than I ever did at places that forced quarterly changes.</p>
+      <p>The Build Agent isn't perfect, and the setup investment is real. You're configuring MID Servers, OAuth credentials, pipeline definitions, and ATF test mappings before you push a single line of code through it. That's a few days of work minimum.</p>
 
-      <p>Sometimes the best security practices are the ones that work with human nature, not against it. A strong password that never changes is better than weak passwords that change every 90 days.</p>
+      <p>But once it's running? Deploying an app goes from a 45-minute multi-tab, multi-login manual process to clicking one button and watching it happen. The approval gates mean your change management process is built into the pipeline rather than bolted on after the fact. And the fact that every deployment follows the exact same path means you stop having those "wait, did you promote the test fix or the old version?" conversations.</p>
 
-      <p>What do you think? Have you worked somewhere that doesn't force password changes?</p>
+      <p>If you're running App Engine Studio and still manually promoting Update Sets, this is worth the setup time. Start with one non-critical app, get the pipeline working end to end, then expand from there.</p>
     </section>
 
     <div class="cta-section">
@@ -365,21 +405,21 @@
       <h2>Helpful Resources</h2>
       <div class="resources-grid">
         <div class="resource-card">
-          <h3>Microsoft Security Blog</h3>
-          <p>Official Microsoft research on password policies and security best practices.</p>
-          <a href="https://www.microsoft.com/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-percent-of-account-hijacking/" target="_blank" rel="noopener noreferrer" class="resource-link">Read Research →</a>
+          <h3>ServiceNow Docs: Build Agent</h3>
+          <p>Official documentation covering installation, configuration, and pipeline setup for the Build Agent.</p>
+          <a href="https://docs.servicenow.com/bundle/washingtondc-it-business-management/page/administer/cicd-pipeline/concept/cicd-pipeline-overview.html" target="_blank" rel="noopener noreferrer" class="resource-link">Read Docs →</a>
         </div>
-        
+
         <div class="resource-card">
-          <h3>NIST Password Guidelines</h3>
-          <p>National Institute of Standards and Technology guidelines on password security.</p>
-          <a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank" rel="noopener noreferrer" class="resource-link">Read Guidelines →</a>
+          <h3>App Engine Studio Overview</h3>
+          <p>Everything you need to know about App Engine Studio, the platform the Build Agent integrates with.</p>
+          <a href="https://docs.servicenow.com/bundle/washingtondc-application-development/page/build/app-engine-studio/concept/aes-overview.html" target="_blank" rel="noopener noreferrer" class="resource-link">Read Docs →</a>
         </div>
-        
+
         <div class="resource-card">
-          <h3>Have I Been Pwned</h3>
-          <p>Check if your email or password has been compromised in a data breach.</p>
-          <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="resource-link">Check Your Data →</a>
+          <h3>CI/CD Spoke on the Store</h3>
+          <p>The ServiceNow Store listing for the CI/CD spoke — the plugin that powers the pipeline automation.</p>
+          <a href="https://store.servicenow.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Store →</a>
         </div>
       </div>
     </section>
@@ -402,9 +442,7 @@
     align-items: start;
   }
 
-  .hero-left {
-    text-align: left;
-  }
+  .hero-left { text-align: left; }
 
   .hero-right {
     position: sticky;
@@ -435,9 +473,7 @@
     color: var(--muted);
   }
 
-  .post-meta time {
-    font-weight: 500;
-  }
+  .post-meta time { font-weight: 500; }
 
   .reading-time, .difficulty {
     background: var(--primary);
@@ -447,10 +483,7 @@
     font-weight: 600;
   }
 
-  .categories {
-    display: flex;
-    gap: 0.5rem;
-  }
+  .categories { display: flex; gap: 0.5rem; }
 
   .category {
     background: var(--pink);
@@ -469,7 +502,7 @@
     padding: 1.5rem;
     position: sticky;
     top: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   }
 
   .toc-header {
@@ -521,7 +554,7 @@
   .toc-item:hover {
     transform: translateX(4px);
     border-color: var(--primary);
-    box-shadow: 0 4px 16px rgba(139, 115, 85, 0.15);
+    box-shadow: 0 4px 16px rgba(139,115,85,0.15);
   }
 
   .toc-number {
@@ -558,9 +591,7 @@
     line-height: 1.3;
   }
 
-  .content-intro {
-    margin-bottom: 3rem;
-  }
+  .content-intro { margin-bottom: 3rem; }
 
   .lead {
     font-size: 1.2rem;
@@ -568,9 +599,7 @@
     line-height: 1.7;
   }
 
-  .content-section {
-    margin-bottom: 3rem;
-  }
+  .content-section { margin-bottom: 3rem; }
 
   .content-section h2 {
     color: var(--text);
@@ -591,7 +620,8 @@
     line-height: 1.7;
   }
 
-  .content-section ul {
+  .content-section ul,
+  .content-section ol {
     margin: 1.5rem 0;
     padding-left: 1.5rem;
   }
@@ -601,9 +631,20 @@
     line-height: 1.6;
   }
 
-  .content-section strong {
-    color: var(--text);
+  .content-section strong { color: var(--text); }
+
+  .callout {
+    border-left: 4px solid var(--snow-brown);
+    background: var(--bg-2);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted);
   }
+
+  .callout strong { color: var(--text); }
 
   .cta-section {
     text-align: center;
@@ -621,13 +662,11 @@
     transition: background-color 0.2s ease;
   }
 
-  .btn:hover {
-    background: #7a6347;
-  }
+  .btn:hover { background: #7a6347; }
 
   .resources-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
     margin-top: 1rem;
   }
@@ -642,7 +681,7 @@
 
   .resource-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.15);
+    box-shadow: 0 4px 12px rgba(139,115,85,0.15);
   }
 
   .resource-card h3 {
@@ -666,9 +705,7 @@
     font-size: 0.9rem;
   }
 
-  .resource-link:hover {
-    text-decoration: underline;
-  }
+  .resource-link:hover { text-decoration: underline; }
 
   @media (max-width: 768px) {
     .post-hero {
@@ -692,13 +729,8 @@
       margin: 0 0 1.5rem 0;
     }
 
-    .post-meta {
-      gap: 1rem;
-    }
-
-    .categories {
-      gap: 0.4rem;
-    }
+    .post-meta { gap: 1rem; }
+    .categories { gap: 0.4rem; }
 
     .category {
       font-size: 0.75rem;
@@ -722,13 +754,8 @@
       font-size: 1.25rem;
     }
 
-    .toc-header h3 {
-      font-size: 1.1rem;
-    }
-
-    .toc-items {
-      gap: 0.5rem;
-    }
+    .toc-header h3 { font-size: 1.1rem; }
+    .toc-items { gap: 0.5rem; }
 
     .toc-item {
       padding: 0.6rem;
@@ -741,18 +768,9 @@
       font-size: 0.75rem;
     }
 
-    .toc-title {
-      font-size: 0.9rem;
-    }
-
-    .toc-desc {
-      font-size: 0.75rem;
-    }
-
-    .resources-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
+    .toc-title { font-size: 0.9rem; }
+    .toc-desc { font-size: 0.75rem; }
+    .resources-grid { grid-template-columns: 1fr; gap: 1rem; }
   }
 </style>
 

@@ -3122,6 +3122,8 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card::before {
@@ -3147,6 +3149,7 @@ body {
 
 .blog-card-header {
   margin-bottom: 24px;
+  flex: 1;
 }
 
 .blog-meta {
@@ -3193,7 +3196,7 @@ body {
 .blog-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid rgba(139,115,85,0.1);
@@ -4475,6 +4478,8 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card::before {
@@ -4500,6 +4505,7 @@ body {
 
 .blog-card-header {
   margin-bottom: 24px;
+  flex: 1;
 }
 
 .blog-meta {
@@ -4546,7 +4552,7 @@ body {
 .blog-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid rgba(139,115,85,0.1);
@@ -5828,6 +5834,8 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card::before {
@@ -5853,6 +5861,7 @@ body {
 
 .blog-card-header {
   margin-bottom: 24px;
+  flex: 1;
 }
 
 .blog-meta {
@@ -5899,7 +5908,7 @@ body {
 .blog-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid rgba(139,115,85,0.1);

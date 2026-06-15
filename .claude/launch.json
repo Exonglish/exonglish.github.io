@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4112", "--directory", "/Users/bryanramos/Documents/GitHub/exonglish.github.io/_site"],
+      "port": 4112
+    }
+  ]
+}

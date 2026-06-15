@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ServiceNow Build Agent: CI/CD for Your Instance · Glitched.</title>
+  <title>From Empty Folder to Live Salon: Building Zen|Santiago · Glitched.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Modern, sharp template powered by Jekyll">
 
@@ -257,16 +257,16 @@
   <article class="blog-post style-modern">
   <div class="post-hero">
     <div class="hero-left">
-      <h1 class="post-title">ServiceNow Build Agent: CI/CD for Your Instance</h1>
-      <p class="post-subtitle">Stop manually promoting apps and let the pipeline do the heavy lifting</p>
+      <h1 class="post-title">From Empty Folder to Live Salon: Building Zen|Santiago</h1>
+      <p class="post-subtitle">A full build journey — design system, a menu that builds itself, and knowing when to cut a feature</p>
 
       <div class="post-meta">
-        <time datetime="2025-01-15">January 15, 2025</time>
-        <span class="reading-time">7 min read</span>
+        <time datetime="2026-06-13">June 13, 2026</time>
+        <span class="reading-time">10 min read</span>
         <span class="difficulty">Intermediate</span>
         <div class="categories">
-          <span class="category">ServiceNow</span>
-          <span class="category">DevOps</span>
+          <span class="category">Web</span>
+          <span class="category">Design</span>
         </div>
       </div>
     </div>
@@ -278,39 +278,46 @@
           <h3>What's This About?</h3>
         </div>
         <div class="toc-items">
-          <a href="#what-is-it" class="toc-item">
+          <a href="#the-brief" class="toc-item">
             <div class="toc-number">01</div>
             <div class="toc-content">
-              <span class="toc-title">What Is the Build Agent?</span>
-              <span class="toc-desc">The problem it solves</span>
+              <span class="toc-title">The Brief</span>
+              <span class="toc-desc">My own salon, a blank folder</span>
             </div>
           </a>
-          <a href="#how-it-works" class="toc-item">
+          <a href="#design-first" class="toc-item">
             <div class="toc-number">02</div>
             <div class="toc-content">
-              <span class="toc-title">How It Actually Works</span>
-              <span class="toc-desc">Pipelines, stages, and environments</span>
+              <span class="toc-title">A Design System First</span>
+              <span class="toc-desc">Six colors and a font</span>
             </div>
           </a>
-          <a href="#setup" class="toc-item">
+          <a href="#menu-engine" class="toc-item">
             <div class="toc-number">03</div>
             <div class="toc-content">
-              <span class="toc-title">Getting It Set Up</span>
-              <span class="toc-desc">What you need to get started</span>
+              <span class="toc-title">The Menu That Builds Itself</span>
+              <span class="toc-desc">JSON in, cards out</span>
             </div>
           </a>
-          <a href="#gotchas" class="toc-item">
+          <a href="#features" class="toc-item">
             <div class="toc-number">04</div>
             <div class="toc-content">
-              <span class="toc-title">Gotchas I've Hit</span>
-              <span class="toc-desc">Things that will catch you off guard</span>
+              <span class="toc-title">Loyalty, Offers &amp; the Link-in-Bio</span>
+              <span class="toc-desc">The fun parts</span>
             </div>
           </a>
-          <a href="#takeaway" class="toc-item">
+          <a href="#boring-stuff" class="toc-item">
             <div class="toc-number">05</div>
             <div class="toc-content">
-              <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Is it worth it?</span>
+              <span class="toc-title">The Boring, Critical Stuff</span>
+              <span class="toc-desc">Consent, SEO, performance</span>
+            </div>
+          </a>
+          <a href="#lessons" class="toc-item">
+            <div class="toc-number">06</div>
+            <div class="toc-content">
+              <span class="toc-title">What I'd Tell Myself Starting Over</span>
+              <span class="toc-desc">The lessons that stuck</span>
             </div>
           </a>
         </div>
@@ -320,114 +327,156 @@
 
   <div class="post-content">
     <div class="content-intro">
-      <p class="lead">For years, promoting a ServiceNow application meant opening an Update Set, exporting an XML file, logging into your next environment, importing it, previewing it, committing it, and then holding your breath. If you had three environments — dev, test, prod — you did that dance twice every single deployment. The Build Agent is ServiceNow's answer to that pain, and once you actually get it running, you'll wonder how you lived without it.</p>
+      <p class="lead">Zen|Santiago Beauty is <strong>my</strong> salon in Santiago de los Caballeros, Dominican Republic. We had Instagram, a chair full of clients, and a Squarespace page we'd outgrown. What we needed was a fast, beautiful site that could actually <em>find</em> new customers and make booking effortless. So I built it myself. This is the story of taking my own business from an empty folder to a live site — what I reached for, what shipped, what I deleted, and the lessons that only show up when it's <em>your</em> business on the other end of the deploy button.</p>
     </div>
 
-    <section class="content-section" id="what-is-it">
-      <h2>What Is the Build Agent?</h2>
-      <p>The Build Agent is a component of ServiceNow's App Engine ecosystem that enables automated CI/CD pipelines for applications built inside your instance. Instead of manually exporting and importing Update Sets, you define a pipeline — a series of environments and gates — and let ServiceNow handle the promotion automatically.</p>
+    <figure class="zen-figure">
+      <img src="/images/zensantiago/home.webp" alt="Zen|Santiago Beauty homepage hero with a muted video loop and the tagline 'Donde tu belleza cobra vida'" loading="lazy" />
+      <figcaption>The homepage hero — a muted, looping video behind the brand promise, with a poster frame so it paints instantly.</figcaption>
+    </figure>
 
-      <p>It sits alongside a few other pieces you might already know:</p>
+    <section class="content-section" id="the-brief">
+      <h2>The Brief</h2>
+      <p>The constraints shaped everything. This is a small business in the DR: a lot of the audience is on mobile, on data, sometimes on older phones, and many of them are an older crowd that isn't going to fight with a clunky interface. The single most common question we get isn't about price — it's <em>"where are you?"</em> So the site had to be fast, obvious, and impossible to get lost in.</p>
 
-      <ul>
-        <li><strong>App Engine Studio (AES)</strong> — the low-code builder where your apps live</li>
-        <li><strong>Pipeline &amp; Deployment spoke</strong> — the automation that moves your app between instances</li>
-        <li><strong>Build Agent</strong> — the worker process that actually executes the pipeline steps on a MID Server</li>
-      </ul>
-
-      <p>The "agent" part is important — it's not just a configuration inside ServiceNow. It's a process that runs on a MID Server and does the actual work of versioning, building, and deploying your app packages between instances. Think of it like a Jenkins agent, but baked into your ServiceNow architecture.</p>
+      <p>I chose a deliberately boring stack: hand-written HTML, CSS, and vanilla JavaScript — no framework, no build step — deployed on <strong>Cloudflare Pages</strong> with clean URLs. No React, no bundler, nothing to <code>npm install</code> and nothing to go stale. For a brochure-and-booking site that needs to load in under a second on a phone in Santiago, the best framework is no framework. Every kilobyte on the page is one I put there on purpose.</p>
 
       <div class="callout callout-info">
-        <strong>Worth knowing:</strong> The Build Agent requires a MID Server with network access to all of your target environments. If your instances are siloed or behind strict firewalls, that's your first conversation to have before anything else.
+        <strong>Why static?</strong> A salon site changes its menu maybe monthly and its hero video maybe never. Paying the complexity tax of a SPA to render content that's effectively frozen is a bad trade. Static files on a CDN are faster, cheaper, and far harder to break.
       </div>
     </section>
 
-    <section class="content-section" id="how-it-works">
-      <h2>How It Actually Works</h2>
-      <p>Here's the flow from commit to production:</p>
-
-      <ol>
-        <li>A developer finishes work on an app in App Engine Studio on dev and clicks "Submit for deployment"</li>
-        <li>That triggers a pipeline run — a defined sequence of stages (dev → test → prod)</li>
-        <li>The Build Agent picks up the job via the MID Server and packages the app into a versioned artifact</li>
-        <li>It installs that artifact into the next environment (test)</li>
-        <li>Automated tests run — ATF test suites you've mapped to the pipeline</li>
-        <li>If tests pass, it waits for approval (if you've configured a gate) or proceeds automatically</li>
-        <li>Same process repeats into production</li>
-      </ol>
-
-      <p>The key concept here is the <strong>pipeline definition</strong>. You set this up once — define your environments, the order they get promoted through, what tests run at each stage, and whether human approval is required before moving forward. After that, every deployment follows the same path automatically.</p>
-
-      <p>You can also define environment-specific properties in the pipeline so that things like connection aliases and integration credentials get swapped out correctly when the app lands in a new instance. This is huge — it means you're not manually hunting down references that point to the wrong place after a promotion.</p>
-    </section>
-
-    <section class="content-section" id="setup">
-      <h2>Getting It Set Up</h2>
-      <p>Before you can run any pipelines, you need a few things in place:</p>
-
-      <h3>1. A MID Server with the right plugins</h3>
-      <p>Your MID Server needs the App Engine Pipeline extensions. Install the <strong>CI/CD spoke</strong> (com.snc.cicd) on your source instance and make sure the MID Server is running a version compatible with your instance release. This is the step most people skip over in the docs and then wonder why nothing works.</p>
-
-      <h3>2. Credentialed connections between instances</h3>
-      <p>The pipeline needs OAuth credentials to authenticate into each target environment. You'll set up a Connection &amp; Credential alias for each instance — dev, test, prod — and the MID Server uses those to install artifacts remotely. Use a dedicated service account for this, not your personal admin account.</p>
-
-      <h3>3. App Engine Studio on every instance</h3>
-      <p>AES needs to be installed on every environment in your pipeline, not just dev. This catches people off guard — the receiving instance needs to be able to accept and run the deployed package, which requires AES be present.</p>
-
-      <h3>4. ATF tests (optional but highly recommended)</h3>
-      <p>You don't have to have Automated Test Framework tests to use the Build Agent, but you're leaving a lot of value on the table if you don't. Set up at least basic smoke tests for your apps and map them to your pipeline stages. That's what turns this from a fancy export tool into an actual quality gate.</p>
-    </section>
-
-    <section class="content-section" id="gotchas">
-      <h2>Gotchas I've Hit</h2>
-      <p>Nothing in ServiceNow ever goes entirely smoothly the first time, and the Build Agent is no exception. Here's what's bitten me:</p>
+    <section class="content-section" id="design-first">
+      <h2>A Design System First</h2>
+      <p>Before a single section got built, I locked a palette and a typeface into CSS custom properties. Everything downstream — buttons, cards, accents, the whole vibe — references these and nothing else:</p>
 
       <ul>
-        <li><strong>MID Server connectivity</strong> — If the MID Server can't reach your target instance on port 443, the pipeline just silently fails or times out. Check your network paths first, before you touch any configuration.</li>
-        <li><strong>App versioning conflicts</strong> — If someone manually installed a version of the app in the target environment outside of the pipeline, you'll get version conflicts. The pipeline expects to be the single source of truth. Don't mix manual and automated deployments.</li>
-        <li><strong>Stale credentials</strong> — OAuth tokens expire. If a pipeline randomly fails weeks after it was working fine, check the credential alias first. Rotating the token and updating the alias usually fixes it immediately.</li>
-        <li><strong>Scope collisions</strong> — If your app shares a scope name with something already on the target instance (even something unrelated), the install can fail in confusing ways. Scope naming conventions matter more than you think.</li>
-        <li><strong>ATF environment mismatch</strong> — Tests written in dev that reference dev-specific data or users will fail in test. Build your ATF tests to be environment-agnostic or use test data that exists everywhere.</li>
+        <li><strong>Bosque</strong> (a deep forest green) for trust and grounding</li>
+        <li><strong>Oro</strong> (gold) for the calls-to-action and accents</li>
+        <li><strong>Pergamino</strong> (warm cream) as the canvas</li>
+        <li><strong>Rosa</strong> (soft pink) and a muted <strong>salvia</strong> green for warmth</li>
       </ul>
+
+      <p>Pair that with Poppins, a centered-logo navbar that splits the menu three items left and three right, and you have a system. The payoff of doing this first is that every later decision becomes a lookup instead of a debate. When I decided weeks later that it needed to feel warmer, I wasn't picking new colors — I was nudging opacity on tokens that already existed.</p>
+
+      <figure class="zen-figure">
+        <img src="/images/zensantiago/nosotros.webp" alt="The 'Nuestro Espacio' photo gallery on the About page showing salon interior shots" loading="lazy" />
+        <figcaption>The "About" page leans on real photography — a clickable gallery of the actual space, which does more for trust than any stock image could.</figcaption>
+      </figure>
+
+      <p>The brand mark itself is built around a hibiscus and a palm frond, so that botanical, tropical-spa motif quietly threads through the whole site without ever shouting.</p>
     </section>
 
-    <section class="content-section" id="takeaway">
-      <h2>My Takeaway</h2>
-      <p>The Build Agent isn't perfect, and the setup investment is real. You're configuring MID Servers, OAuth credentials, pipeline definitions, and ATF test mappings before you push a single line of code through it. That's a few days of work minimum.</p>
+    <section class="content-section" id="menu-engine">
+      <h2>The Menu That Builds Itself</h2>
+      <p>This is the piece I'm proudest of. A salon menu is deceptively hard: dozens of services, prices that change by hair length, grouped by category, and the owner needs to update it without touching code. So I didn't hard-code a menu — I built a tiny rendering engine.</p>
 
-      <p>But once it's running? Deploying an app goes from a 45-minute multi-tab, multi-login manual process to clicking one button and watching it happen. The approval gates mean your change management process is built into the pipeline rather than bolted on after the fact. And the fact that every deployment follows the exact same path means you stop having those "wait, did you promote the test fix or the old version?" conversations.</p>
+      <p>All the services live in a single <code>services.json</code> file. Each item carries its name, description, duration, and either a flat price or a set of length tiers (corto, medio, largo, extra). A ~24&nbsp;KB vanilla-JS engine fetches that JSON and builds the entire page: category sections, cards, a live search box, a "filter by hair length" control that re-prices everything on the fly, and a contextual detail library that explains each treatment.</p>
 
-      <p>If you're running App Engine Studio and still manually promoting Update Sets, this is worth the setup time. Start with one non-critical app, get the pipeline working end to end, then expand from there.</p>
-    </section>
+      <figure class="zen-figure">
+        <img src="/images/zensantiago/menu.webp" alt="The interactive services menu with category pills, a length filter, search, and price-by-length cards" loading="lazy" />
+        <figcaption>The menu renders entirely from JSON: searchable, filterable by category and hair length, with prices that update live.</figcaption>
+      </figure>
 
-    <div class="cta-section">
-      <a href="/contact" class="btn btn-primary">Get in Touch</a>
-    </div>
-
-    <section class="content-section">
-      <h2>Helpful Resources</h2>
-      <div class="resources-grid">
-        <div class="resource-card">
-          <h3>ServiceNow Docs: Build Agent</h3>
-          <p>Official documentation covering installation, configuration, and pipeline setup for the Build Agent.</p>
-          <a href="https://docs.servicenow.com/bundle/washingtondc-it-business-management/page/administer/cicd-pipeline/concept/cicd-pipeline-overview.html" target="_blank" rel="noopener noreferrer" class="resource-link">Read Docs →</a>
-        </div>
-
-        <div class="resource-card">
-          <h3>App Engine Studio Overview</h3>
-          <p>Everything you need to know about App Engine Studio, the platform the Build Agent integrates with.</p>
-          <a href="https://docs.servicenow.com/bundle/washingtondc-application-development/page/build/app-engine-studio/concept/aes-overview.html" target="_blank" rel="noopener noreferrer" class="resource-link">Read Docs →</a>
-        </div>
-
-        <div class="resource-card">
-          <h3>CI/CD Spoke on the Store</h3>
-          <p>The ServiceNow Store listing for the CI/CD spoke — the plugin that powers the pipeline automation.</p>
-          <a href="https://store.servicenow.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Store →</a>
-        </div>
+      <div class="callout callout-info">
+        <strong>The real win:</strong> updating a price or adding a service is a one-line edit to a single JSON file — something anyone at the salon can do, no deploy gymnastics, no risk of breaking layout, no developer in the loop for routine changes. The data and the presentation are cleanly separated — the same principle behind every CMS, just sized appropriately for a salon.
       </div>
+
+      <p>That same data file later became the backbone for an "Ofertas" category, so the anniversary promotions could surface inside the menu <em>and</em> on their own page without duplicating a single price.</p>
+    </section>
+
+    <section class="content-section" id="features">
+      <h2>Loyalty, Offers &amp; the Link-in-Bio</h2>
+      <p>With the foundation solid, the site grew three features that each solve a specific business problem.</p>
+
+      <h3>Royalty — a loyalty program page</h3>
+      <p>The salon runs a points-and-tiers loyalty program, so it needed a page that made the gemstone tiers — Jade, Larimar, Amatista, Ónix, Diamante — feel aspirational. This one took the most iterations. I first built a flashy, full-screen "scrollytelling" deck. Wearing my owner hat, I didn't love it. I tried a calm, Japanese-zen aesthetic. Closer, but not it. I landed on a version that simply matches the rest of the site, with a tidy interactive tier selector and custom gemstone emblems.</p>
+
+      <figure class="zen-figure">
+        <img src="/images/zensantiago/royalty.webp" alt="The Royalty loyalty page with gemstone tier pills and an emblem for the Jade tier" loading="lazy" />
+        <figcaption>Royalty, after several rewrites: on-brand, with a clickable gemstone tier selector and hand-cut emblems.</figcaption>
+      </figure>
+
+      <h3>Anniversary offers</h3>
+      <p>For the salon's first anniversary, I built an offers page from a printed flyer: a grid of promo cards with the real product photography, clickable cards that open a detail modal, and a celebratory photo behind it all. There's also an entry popup announcing the promo — with a date check baked in so it <em>stops showing itself automatically</em> after the promotion ends. No one wants to advertise an expired sale in July.</p>
+
+      <figure class="zen-figure">
+        <img src="/images/zensantiago/ofertas.webp" alt="The anniversary offers grid with six promo cards, product cutouts, and prices" loading="lazy" />
+        <figcaption>The anniversary offers: six combos with cut-out product shots, clickable for full details, over a celebration backdrop.</figcaption>
+      </figure>
+
+      <figure class="zen-figure">
+        <img src="/images/zensantiago/popup.webp" alt="An entry popup announcing the first-anniversary promotions" loading="lazy" />
+        <figcaption>The entry popup that greets visitors with the promo — and quietly retires itself once the dates pass.</figcaption>
+      </figure>
+
+      <h3>The link-in-bio hub</h3>
+      <p>Most of this salon's traffic comes from an Instagram bio link. A normal homepage is the wrong landing page for that — those visitors have one of three intents: <em>where are you, let me book, show me more.</em> So I built a dedicated, mobile-first <code>/reservar</code> hub that works like a guided three-step flow: <strong>how to get here</strong> (the #1 question, so it's step one) with a photo strip of the space, <strong>book</strong> via Fresha or a WhatsApp form, and <strong>explore</strong> the rest.</p>
+
+      <figure class="zen-figure zen-figure--phone">
+        <img src="/images/zensantiago/hub.webp" alt="The mobile link-in-bio hub at /reservar with a three-step flow and salon photos" loading="lazy" />
+        <figcaption>The Instagram link-in-bio hub: a focused, mobile-first flow that answers "where are you?" first.</figcaption>
+      </figure>
+    </section>
+
+    <section class="content-section" id="boring-stuff">
+      <h2>The Boring, Critical Stuff</h2>
+      <p>The features get the screenshots, but the unglamorous work is what makes a site real.</p>
+
+      <p><strong>Cookie consent done right.</strong> The site uses Google Analytics, which means cookies, which means consent. Rather than a fake "we use cookies" bar, I wired up <strong>Google Consent Mode v2</strong>: analytics is blocked by default and only activates after the visitor accepts. The choice is remembered, and the privacy policy was rewritten to actually describe what's collected. Doing this honestly is both the right call and increasingly a legal one.</p>
+
+      <p><strong>Local SEO.</strong> For a local business, ranking is mostly about Google Business Profile and reviews — but the on-page work still matters: unique titles and descriptions per page, one keyword-bearing H1 each, <code>HairSalon</code> structured data with the legal name and tax ID, an <code>OfferCatalog</code> schema for the promotions (with real prices and expiry dates), geo meta tags, a sitemap with <code>lastmod</code>, and clean canonical URLs.</p>
+
+      <p><strong>Performance.</strong> Every image is WebP. The hero videos got a poster frame so the page paints before the video loads, and the section video was re-encoded from 3.9&nbsp;MB down to 2.6. Cache headers tell returning visitors not to re-download anything. The Instagram feed pulls from a cookieless provider so it doesn't even touch the consent flow.</p>
+
+      <div class="callout callout-info">
+        <strong>A small bug that taught a big lesson:</strong> the stylesheet was cached for a week but its cache-busting version string hadn't changed in dozens of edits — so returning visitors were being served week-old CSS. Aggressive caching is only your friend if you remember to bust it. Now the version bumps whenever the styles change.
+      </div>
+    </section>
+
+    <section class="content-section" id="lessons">
+      <h2>What I'd Tell Myself Starting Over</h2>
+      <p>A few things only became obvious in the building.</p>
+
+      <p><strong>Separate data from presentation early, even when it feels like overkill.</strong> The <code>services.json</code> approach felt like a lot of ceremony for a salon menu. It paid for itself ten times over — every price change, every new offer, every reuse of that data somewhere else was a one-line edit instead of a layout surgery.</p>
+
+      <p><strong>Know when to kill a feature.</strong> I built decorative floral frames, layered hibiscus watermarks, a full-screen scrolly Royalty deck, an immersive zen redesign — and deleted most of them. Some of my favorite work didn't survive contact with what the business actually needed — and being both the builder and the owner, I got to be brutal about cutting it. The site is better for what's <em>not</em> in it. Restraint is a feature.</p>
+
+      <p><strong>Auto-cutouts have limits.</strong> A surprising amount of time went into removing backgrounds from product photos. A red shampoo bottle on white cuts cleanly; a <em>white</em> bottle on white is basically impossible to automate well. Knowing where the easy path ends — and asking for a proper transparent PNG instead of fighting it — saves hours.</p>
+
+      <p><strong>The boring stuff is the product.</strong> Consent, caching, schema, alt text, a poster frame on a video — none of it screenshots well, but it's the difference between a pretty page and a site a real business can run on.</p>
+
+      <div class="callout callout-info">
+        <strong>The takeaway:</strong> a static site, built deliberately, with the data separated from the design and the boring fundamentals taken seriously, will outperform a heavier build for a business like this — and stay maintainable long after launch. Sometimes the most modern choice is the simplest one.
+      </div>
+
+      <p>Zen|Santiago is live at <a href="https://zensantiago.com" target="_blank" rel="noopener noreferrer">zensantiago.com</a>. The hardest part was never the code — it was the hundred small judgment calls about what belonged and what didn't.</p>
     </section>
   </div>
 </article>
+
+<style>
+  .zen-figure {
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+  .zen-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .zen-figure figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-style: italic;
+  }
+  .zen-figure--phone img {
+    max-width: 300px;
+  }
+</style>
 
 
 </main>

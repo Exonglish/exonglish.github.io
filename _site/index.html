@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="/styles.css" rel="stylesheet">
   <link href="/earth-palette.css" rel="stylesheet">
+  <link href="/post.css" rel="stylesheet">
+  <link href="/responsive-fixes.css" rel="stylesheet">
   <style>
     /* ── heading font ───────────────────────────────── */
     h1, h2 {
@@ -21,7 +23,7 @@
     /* ── category badge: override pink in all posts ─── */
     .blog-post .category {
       background: var(--snow-brown);
-      color: #fff;
+      color: var(--snow-light);
     }
 
     /* ── nav search ─────────────────────────────────── */
@@ -292,6 +294,20 @@
     <article class="blog-preview-card">
       <div class="blog-preview-body">
         <div class="blog-preview-meta">
+          <time datetime="2026-06-13">June 13, 2026</time>
+          <span class="blog-preview-cat">Web</span>
+        </div>
+        <h3 class="blog-preview-title">
+          <a href="/posts/building-a-salon-website-from-scratch/">From Empty Folder to Live Salon: Building Zen|Santiago</a>
+        </h3>
+        <p class="blog-preview-excerpt">My own salon, a blank folder, and a deadline. Here's the full build journey of building my beauty salon's website — t...</p>
+      </div>
+      <a href="/posts/building-a-salon-website-from-scratch/" class="read-more">Read More →</a>
+    </article>
+    
+    <article class="blog-preview-card">
+      <div class="blog-preview-body">
+        <div class="blog-preview-meta">
           <time datetime="2025-08-21">August 21, 2025</time>
           <span class="blog-preview-cat">ServiceNow</span>
         </div>
@@ -315,20 +331,6 @@
         <p class="blog-preview-excerpt">MCP servers let AI assistants like Claude talk to your internal tools — but without access control, that's a security...</p>
       </div>
       <a href="/posts/building-mcp-servers-with-role-based-access-control/" class="read-more">Read More →</a>
-    </article>
-    
-    <article class="blog-preview-card">
-      <div class="blog-preview-body">
-        <div class="blog-preview-meta">
-          <time datetime="2025-02-10">February 10, 2025</time>
-          <span class="blog-preview-cat">IT</span>
-        </div>
-        <h3 class="blog-preview-title">
-          <a href="/posts/immy-bot-the-endpoint-manager-you-didnt-know-you-needed/">Immy.bot: The Endpoint Manager You Didn't Know You Needed</a>
-        </h3>
-        <p class="blog-preview-excerpt">Immy.bot is the endpoint management tool that actually gets onboarding right — software deployments that are smart en...</p>
-      </div>
-      <a href="/posts/immy-bot-the-endpoint-manager-you-didnt-know-you-needed/" class="read-more">Read More →</a>
     </article>
     
   </div>

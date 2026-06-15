@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="/styles.css" rel="stylesheet">
   <link href="/earth-palette.css" rel="stylesheet">
+  <link href="/post.css" rel="stylesheet">
+  <link href="/responsive-fixes.css" rel="stylesheet">
   <style>
     /* ── heading font ───────────────────────────────── */
     h1, h2 {
@@ -21,7 +23,7 @@
     /* ── category badge: override pink in all posts ─── */
     .blog-post .category {
       background: var(--snow-brown);
-      color: #fff;
+      color: var(--snow-light);
     }
 
     /* ── nav search ─────────────────────────────────── */
@@ -261,6 +263,63 @@
   <div class="blog-grid" id="blog-grid">
     
     <article class="blog-card style-modern"
+      data-category="web"
+      data-tags="web-development,case-study,static-site,javascript,css,seo,cloudflare-pages,design,jamstack">
+      <div class="blog-card-header">
+        <div class="blog-meta">
+          <time datetime="2026-06-13">June 13, 2026</time>
+          <span class="blog-category">Web</span>
+        </div>
+        <h2 class="blog-title lvl1" id="post-1">
+          <a href="/posts/building-a-salon-website-from-scratch/">From Empty Folder to Live Salon: Building Zen|Santiago</a>
+        </h2>
+        <p class="blog-excerpt">My own salon, a blank folder, and a deadline. Here's the full build journey of building my beauty salon's website — the design system, the data-driven menu, the features that shipped, the ones I killed, and what I learned shipping a static site that has to convert real customers.</p>
+      </div>
+      <div class="blog-card-footer">
+        <div class="blog-tags">
+          
+            
+              <button class="tag tag-filter" data-tag="web-development">web-development</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="case-study">case-study</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="static-site">static-site</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="javascript">javascript</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="css">css</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="seo">seo</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="cloudflare-pages">cloudflare-pages</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="design">design</button>
+            
+          
+            
+              <button class="tag tag-filter" data-tag="jamstack">jamstack</button>
+            
+          
+        </div>
+        <a href="/posts/building-a-salon-website-from-scratch/" class="read-more">Read More →</a>
+      </div>
+    </article>
+    
+    <article class="blog-card style-modern"
       data-category="servicenow"
       data-tags="servicenow,email,templates,notifications,html">
       <div class="blog-card-header">
@@ -268,7 +327,7 @@
           <time datetime="2025-08-21">August 21, 2025</time>
           <span class="blog-category">ServiceNow</span>
         </div>
-        <h2 class="blog-title lvl1" id="post-1">
+        <h2 class="blog-title lvl1" id="post-2">
           <a href="/posts/servicenow-notification-templates/">ServiceNow Notification Templates</a>
         </h2>
         <p class="blog-excerpt">A collection of modern, professional HTML email templates for ServiceNow notifications. Five different styles inspired by popular brands to make your notifications stand out.</p>
@@ -309,7 +368,7 @@
           <time datetime="2025-03-05">March 05, 2025</time>
           <span class="blog-category">AI</span>
         </div>
-        <h2 class="blog-title lvl1" id="post-2">
+        <h2 class="blog-title lvl1" id="post-3">
           <a href="/posts/building-mcp-servers-with-role-based-access-control/">Building MCP Servers with Role-Based Access Control</a>
         </h2>
         <p class="blog-excerpt">MCP servers let AI assistants like Claude talk to your internal tools — but without access control, that's a security conversation you don't want to have. Here's how to build MCP servers with RBAC baked in from the start.</p>
@@ -366,7 +425,7 @@
           <time datetime="2025-02-10">February 10, 2025</time>
           <span class="blog-category">IT</span>
         </div>
-        <h2 class="blog-title lvl1" id="post-3">
+        <h2 class="blog-title lvl1" id="post-4">
           <a href="/posts/immy-bot-the-endpoint-manager-you-didnt-know-you-needed/">Immy.bot: The Endpoint Manager You Didn't Know You Needed</a>
         </h2>
         <p class="blog-excerpt">Immy.bot is the endpoint management tool that actually gets onboarding right — software deployments that are smart enough to know what's already installed, what version it is, and whether it needs to be there at all.</p>
@@ -419,7 +478,7 @@
           <time datetime="2025-01-15">January 15, 2025</time>
           <span class="blog-category">ServiceNow</span>
         </div>
-        <h2 class="blog-title lvl1" id="post-4">
+        <h2 class="blog-title lvl1" id="post-5">
           <a href="/posts/servicenow-build-agent-explained/">ServiceNow Build Agent: CI/CD for Your Instance</a>
         </h2>
         <p class="blog-excerpt">ServiceNow's Build Agent brings real CI/CD to your instance — automated pipelines that move apps from dev to prod without the manual export and pray method.</p>
@@ -472,7 +531,7 @@
           <time datetime="2024-12-20">December 20, 2024</time>
           <span class="blog-category">Security</span>
         </div>
-        <h2 class="blog-title lvl1" id="post-5">
+        <h2 class="blog-title lvl1" id="post-6">
           <a href="/posts/microsoft-password-expiry-security-myth/">Microsoft Says Password Expiry Makes You Less Secure</a>
         </h2>
         <p class="blog-excerpt">Microsoft's research reveals that forcing password changes actually makes systems less secure. Here's why the traditional wisdom about password expiry is wrong.</p>
@@ -517,7 +576,7 @@
           <time datetime="2024-12-19">December 19, 2024</time>
           <span class="blog-category">ServiceNow</span>
         </div>
-        <h2 class="blog-title lvl1" id="post-6">
+        <h2 class="blog-title lvl1" id="post-7">
           <a href="/posts/do-we-really-need-reqs-in-servicenow/">Do We Really Need REQs in ServiceNow?</a>
         </h2>
         <p class="blog-excerpt">A deep dive into whether ServiceNow Requests (REQs) are always necessary, exploring the pros and cons of skipping them and when it might actually work.</p>
@@ -609,6 +668,15 @@
             </li>
           
         
+          
+            
+            <li>
+              <button class="category-filter" data-category="web">
+                Web <span class="cat-count">(1)</span>
+              </button>
+            </li>
+          
+        
       </ul>
     </div>
 
@@ -651,6 +719,10 @@
           
         
           
+            <button class="tag tag-filter" data-tag="case-study">case-study</button>
+          
+        
+          
             <button class="tag tag-filter" data-tag="cicd">cicd</button>
           
         
@@ -659,11 +731,23 @@
           
         
           
+            <button class="tag tag-filter" data-tag="cloudflare-pages">cloudflare-pages</button>
+          
+        
+          
+            <button class="tag tag-filter" data-tag="css">css</button>
+          
+        
+          
             <button class="tag tag-filter" data-tag="cybersecurity">cybersecurity</button>
           
         
           
             <button class="tag tag-filter" data-tag="deployment">deployment</button>
+          
+        
+          
+            <button class="tag tag-filter" data-tag="design">design</button>
           
         
           
@@ -684,6 +768,14 @@
         
           
             <button class="tag tag-filter" data-tag="immybot">immybot</button>
+          
+        
+          
+            <button class="tag tag-filter" data-tag="jamstack">jamstack</button>
+          
+        
+          
+            <button class="tag tag-filter" data-tag="javascript">javascript</button>
           
         
           
@@ -747,6 +839,10 @@
           
         
           
+            <button class="tag tag-filter" data-tag="seo">seo</button>
+          
+        
+          
             <button class="tag tag-filter" data-tag="servicenow">servicenow</button>
           
         
@@ -759,11 +855,19 @@
           
         
           
+            <button class="tag tag-filter" data-tag="static-site">static-site</button>
+          
+        
+          
             <button class="tag tag-filter" data-tag="task">task</button>
           
         
           
             <button class="tag tag-filter" data-tag="templates">templates</button>
+          
+        
+          
+            <button class="tag tag-filter" data-tag="web-development">web-development</button>
           
         
           

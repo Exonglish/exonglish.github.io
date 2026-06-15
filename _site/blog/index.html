@@ -11,9 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="/styles.css" rel="stylesheet">
-  <link href="/earth-palette.css" rel="stylesheet">
-  <link href="/post.css" rel="stylesheet">
-  <link href="/responsive-fixes.css" rel="stylesheet">
   <style>
     /* ── heading font ───────────────────────────────── */
     h1, h2 {
@@ -950,99 +947,6 @@
 })();
 </script>
 
-<style>
-/* clickable tags */
-.tag-filter {
-  background: var(--bg-2);
-  border: 1px solid var(--primary);
-  border-radius: 4px;
-  padding: 3px 10px;
-  font-size: 12px;
-  color: var(--muted);
-  cursor: pointer;
-  font-family: inherit;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-
-.tag-filter:hover {
-  border-color: var(--snow-brown);
-  color: var(--text);
-}
-
-.tag-filter.active {
-  background: var(--snow-brown);
-  border-color: var(--snow-brown);
-  color: #fff;
-}
-
-/* category filter */
-.category-filter {
-  background: none;
-  border: none;
-  padding: 4px 0;
-  font: inherit;
-  font-size: 14px;
-  color: var(--muted);
-  cursor: pointer;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  width: 100%;
-  transition: color 0.15s;
-}
-
-.category-filter:hover,
-.category-filter.active {
-  color: var(--snow-brown);
-}
-
-.category-filter.active {
-  font-weight: 600;
-}
-
-.cat-count {
-  color: var(--muted);
-  font-weight: 400;
-}
-
-/* tags header row */
-.tags-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.tags-header .lvl2 {
-  margin: 0;
-}
-
-.tags-clear {
-  background: none;
-  border: none;
-  font-size: 12px;
-  color: var(--snow-brown);
-  cursor: pointer;
-  padding: 0;
-  font-family: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: opacity 0.15s;
-}
-
-.tags-clear:hover {
-  opacity: 0.7;
-}
-
-/* no results — lives inside the flex blog-grid */
-.no-filter-results {
-  text-align: center;
-  color: var(--muted);
-  padding: 40px 0;
-  font-size: 15px;
-}
-</style>
 
 </main>
 

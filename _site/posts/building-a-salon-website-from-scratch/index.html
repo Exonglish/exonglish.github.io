@@ -268,59 +268,8 @@
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#the-brief" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">The Brief</span>
-              <span class="toc-desc">My own salon, a blank folder</span>
-            </div>
-          </a>
-          <a href="#design-first" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">A Design System First</span>
-              <span class="toc-desc">Six colors and a font</span>
-            </div>
-          </a>
-          <a href="#menu-engine" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">The Menu That Builds Itself</span>
-              <span class="toc-desc">JSON in, cards out</span>
-            </div>
-          </a>
-          <a href="#features" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">Loyalty, Offers &amp; the Link-in-Bio</span>
-              <span class="toc-desc">The fun parts</span>
-            </div>
-          </a>
-          <a href="#boring-stuff" class="toc-item">
-            <div class="toc-number">05</div>
-            <div class="toc-content">
-              <span class="toc-title">The Boring, Critical Stuff</span>
-              <span class="toc-desc">Consent, SEO, performance</span>
-            </div>
-          </a>
-          <a href="#lessons" class="toc-item">
-            <div class="toc-number">06</div>
-            <div class="toc-content">
-              <span class="toc-title">What I'd Tell Myself Starting Over</span>
-              <span class="toc-desc">The lessons that stuck</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">
@@ -632,6 +581,60 @@
     document.addEventListener('click', function(e) {
       if (!navSearch.contains(e.target)) closeSearch();
     });
+  })();
+</script>
+
+<script>
+  // ── Universal blog-post table of contents ───────────────────
+  // Builds one consistent "On this page" reference for every post
+  // from its section headings. Identical markup/behavior across all
+  // posts — never hand-authored per post.
+  (function () {
+    var host = document.querySelector('.blog-post .hero-right');
+    if (!host) return;
+
+    var sections = [].slice.call(
+      document.querySelectorAll('.post-content .content-section[id]')
+    );
+    var items = sections.map(function (sec) {
+      var h = sec.querySelector('h2');
+      return h ? { id: sec.id, text: h.textContent.trim() } : null;
+    }).filter(Boolean);
+
+    if (!items.length) { host.remove(); return; }
+
+    function esc(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    var html = '<nav class="post-toc" aria-label="Table of contents">' +
+      '<p class="post-toc-title">On this page</p>' +
+      '<ol class="post-toc-list">';
+    items.forEach(function (it, i) {
+      var n = ('0' + (i + 1)).slice(-2);
+      html += '<li><a href="#' + it.id + '">' +
+        '<span class="post-toc-num">' + n + '</span>' +
+        '<span class="post-toc-label">' + esc(it.text) + '</span>' +
+        '</a></li>';
+    });
+    html += '</ol></nav>';
+    host.innerHTML = html;
+
+    // active-section highlighting
+    var links = {};
+    host.querySelectorAll('a').forEach(function (a) {
+      links[a.getAttribute('href').slice(1)] = a;
+    });
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          Object.keys(links).forEach(function (k) { links[k].classList.remove('active'); });
+          if (links[e.target.id]) links[e.target.id].classList.add('active');
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      sections.forEach(function (s) { obs.observe(s); });
+    }
   })();
 </script>
 </body>

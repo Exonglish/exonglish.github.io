@@ -26,52 +26,8 @@ style: style-modern
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#what-is-it" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">What Is Immy.bot?</span>
-              <span class="toc-desc">Not just another RMM tool</span>
-            </div>
-          </a>
-          <a href="#how-it-thinks" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">How It Thinks</span>
-              <span class="toc-desc">Desired state vs. push and pray</span>
-            </div>
-          </a>
-          <a href="#onboarding" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">Onboarding Sessions</span>
-              <span class="toc-desc">The feature that changes everything</span>
-            </div>
-          </a>
-          <a href="#software-library" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">The Software Library</span>
-              <span class="toc-desc">Curated, version-aware deployments</span>
-            </div>
-          </a>
-          <a href="#takeaway" class="toc-item">
-            <div class="toc-number">05</div>
-            <div class="toc-content">
-              <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Who it's really for</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">

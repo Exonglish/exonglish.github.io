@@ -26,45 +26,8 @@ style: style-modern
       </div>
     </div>
     
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#the-myth" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">The Mind-Blowing Revelation</span>
-              <span class="toc-desc">How my manager changed everything</span>
-            </div>
-          </a>
-          <a href="#microsoft-research" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">Why Password Expiry Backfires</span>
-              <span class="toc-desc">The predictable human behavior</span>
-            </div>
-          </a>
-          <a href="#better-approaches" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">What Actually Works</span>
-              <span class="toc-desc">Better security approaches</span>
-            </div>
-          </a>
-          <a href="#takeaway" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Four years later, still secure</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">

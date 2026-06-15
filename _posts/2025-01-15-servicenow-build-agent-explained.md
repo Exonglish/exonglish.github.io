@@ -26,52 +26,8 @@ style: style-modern
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#what-is-it" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">What Is the Build Agent?</span>
-              <span class="toc-desc">The problem it solves</span>
-            </div>
-          </a>
-          <a href="#how-it-works" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">How It Actually Works</span>
-              <span class="toc-desc">Pipelines, stages, and environments</span>
-            </div>
-          </a>
-          <a href="#setup" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">Getting It Set Up</span>
-              <span class="toc-desc">What you need to get started</span>
-            </div>
-          </a>
-          <a href="#gotchas" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">Gotchas I've Hit</span>
-              <span class="toc-desc">Things that will catch you off guard</span>
-            </div>
-          </a>
-          <a href="#takeaway" class="toc-item">
-            <div class="toc-number">05</div>
-            <div class="toc-content">
-              <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Is it worth it?</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">

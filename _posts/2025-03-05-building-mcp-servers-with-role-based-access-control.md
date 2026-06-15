@@ -26,59 +26,8 @@ style: style-modern
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#what-is-mcp" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">What Is MCP?</span>
-              <span class="toc-desc">The protocol connecting AI to your tools</span>
-            </div>
-          </a>
-          <a href="#why-rbac" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">Why RBAC Matters Here</span>
-              <span class="toc-desc">The access control problem nobody talks about</span>
-            </div>
-          </a>
-          <a href="#anatomy" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">Anatomy of an MCP Server</span>
-              <span class="toc-desc">Tools, resources, and prompts</span>
-            </div>
-          </a>
-          <a href="#building-rbac" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">Building in Access Control</span>
-              <span class="toc-desc">Patterns that actually work</span>
-            </div>
-          </a>
-          <a href="#servicenow-example" class="toc-item">
-            <div class="toc-number">05</div>
-            <div class="toc-content">
-              <span class="toc-title">A ServiceNow Example</span>
-              <span class="toc-desc">Putting it together in practice</span>
-            </div>
-          </a>
-          <a href="#takeaway" class="toc-item">
-            <div class="toc-number">06</div>
-            <div class="toc-content">
-              <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Where this is all going</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">

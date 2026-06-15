@@ -26,59 +26,8 @@ style: style-modern
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#the-brief" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">The Brief</span>
-              <span class="toc-desc">My own salon, a blank folder</span>
-            </div>
-          </a>
-          <a href="#design-first" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">A Design System First</span>
-              <span class="toc-desc">Six colors and a font</span>
-            </div>
-          </a>
-          <a href="#menu-engine" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">The Menu That Builds Itself</span>
-              <span class="toc-desc">JSON in, cards out</span>
-            </div>
-          </a>
-          <a href="#features" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">Loyalty, Offers & the Link-in-Bio</span>
-              <span class="toc-desc">The fun parts</span>
-            </div>
-          </a>
-          <a href="#boring-stuff" class="toc-item">
-            <div class="toc-number">05</div>
-            <div class="toc-content">
-              <span class="toc-title">The Boring, Critical Stuff</span>
-              <span class="toc-desc">Consent, SEO, performance</span>
-            </div>
-          </a>
-          <a href="#lessons" class="toc-item">
-            <div class="toc-number">06</div>
-            <div class="toc-content">
-              <span class="toc-title">What I'd Tell Myself Starting Over</span>
-              <span class="toc-desc">The lessons that stuck</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">

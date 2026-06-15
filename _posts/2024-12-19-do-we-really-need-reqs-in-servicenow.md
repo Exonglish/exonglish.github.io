@@ -26,52 +26,8 @@ style: style-modern
       </div>
     </div>
     
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#refresher" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">Quick Refresher</span>
-              <span class="toc-desc">REQ vs RITM vs Task hierarchy</span>
-            </div>
-          </a>
-          <a href="#client-setup" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">The Client Setup</span>
-              <span class="toc-desc">When REQs were completely skipped</span>
-            </div>
-          </a>
-          <a href="#pros-cons" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">Pros & Cons Analysis</span>
-              <span class="toc-desc">When it works vs when it doesn't</span>
-            </div>
-          </a>
-          <a href="#edge-cases" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">Edge Cases & Considerations</span>
-              <span class="toc-desc">When skipping REQs might work</span>
-            </div>
-          </a>
-          <a href="#takeaway" class="toc-item">
-            <div class="toc-number">05</div>
-            <div class="toc-content">
-              <span class="toc-title">My Takeaway</span>
-              <span class="toc-desc">Lessons learned and recommendations</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">

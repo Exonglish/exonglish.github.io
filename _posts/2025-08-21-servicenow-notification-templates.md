@@ -23,52 +23,8 @@ style: style-modern
       </div>
     </div>
     
-    <div class="hero-right">
-      <div class="table-of-contents">
-        <div class="toc-header">
-          <div class="toc-icon">📋</div>
-          <h3>What's This About?</h3>
-        </div>
-        <div class="toc-items">
-          <a href="#tesla-style" class="toc-item">
-            <div class="toc-number">01</div>
-            <div class="toc-content">
-              <span class="toc-title">Tesla Style</span>
-              <span class="toc-desc">Minimalist & futuristic design</span>
-            </div>
-          </a>
-          <a href="#google-style" class="toc-item">
-            <div class="toc-number">02</div>
-            <div class="toc-content">
-              <span class="toc-title">Google Style</span>
-              <span class="toc-desc">Material Design inspired</span>
-            </div>
-          </a>
-          <a href="#adobe-style" class="toc-item">
-            <div class="toc-number">03</div>
-            <div class="toc-content">
-              <span class="toc-title">Adobe Style</span>
-              <span class="toc-desc">Editorial & professional</span>
-            </div>
-          </a>
-          <a href="#chatgpt-style" class="toc-item">
-            <div class="toc-number">04</div>
-            <div class="toc-content">
-              <span class="toc-title">ChatGPT Style</span>
-              <span class="toc-desc">Modern & conversational</span>
-            </div>
-          </a>
-          <a href="#macos-style" class="toc-item">
-            <div class="toc-number">05</div>
-            <div class="toc-content">
-              <span class="toc-title">macOS Style</span>
-              <span class="toc-desc">Native & clean design</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div class="hero-right"></div>
     </div>
-  </div>
 
   <div class="post-content">
     <div class="content-intro">

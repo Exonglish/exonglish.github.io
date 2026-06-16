@@ -132,10 +132,8 @@ h1, h2, h3, h4 { color: var(--text); }
   font-size: clamp(48px, 9vw, 115px);
   margin: 0 0 12px 0;
   max-width: 900px;
-  background: linear-gradient(135deg, var(--brown), #10b981);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--on-accent);
+  text-shadow: 5px 5px 0 var(--paper);
 }
 
 .lvl1 {
@@ -1000,6 +998,7 @@ h1, h2, h3, h4 { color: var(--text); }
 @media (max-width: 560px) {
   .header-right { gap: 8px; }
   .nav-search-label { display: none; }
+  .lvl0 { text-shadow: 3px 3px 0 var(--paper); }
   .hero-title { text-shadow: 4px 4px 0 var(--paper); }
   .hero-subtitle { font-size: 20px; }
   .hero-description { font-size: 18px; }

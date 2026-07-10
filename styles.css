@@ -3,13 +3,15 @@
    One coherent neo-brutalist + earth-palette system.
 
    Conventions
-   - Color "chips/cards" use theme-stable accent backgrounds
-     (yellow/pink/blue/coral) → text is always dark (--on-accent).
-   - "Surface" elements use --paper / --bg / --bg-2 → text uses
-     var(--text), which flips with the theme (fixes dark-mode
-     buried text).
-   - Borders + hard offset shadows use --line, which flips to a
-     light ink in dark mode so it stays visible on dark backgrounds.
+   - Two palettes: a light earthy palette and a dedicated DARK earthy
+     palette (deep browns + greens). Both are defined purely in the
+     :root / [data-theme="dark"] token blocks below — components only
+     reference tokens, never raw colors.
+   - Accent backgrounds (yellow/pink/blue/coral/mint) are LIGHT in
+     light mode and DEEP in dark mode. Text on them uses --on-accent
+     (+ --on-accent-dim for secondary), which flips per theme.
+   - "Surface" elements use --paper / --bg / --bg-2 with --text.
+   - Borders + hard offset shadows use --line.
    ============================================================ */
 
 /* ---- Design tokens ---------------------------------------- */
@@ -24,7 +26,8 @@
   --muted: #665f56;
   --ink: #2f2924;          /* strong text */
   --line: #2f2924;         /* borders + offset shadows */
-  --on-accent: #2f2924;    /* text on accent chips (always dark) */
+  --on-accent: #2f2924;    /* text on accent chips */
+  --on-accent-dim: rgba(47, 41, 36, .75); /* secondary text on accents */
 
   /* accents (theme-stable) */
   --yellow: #dfc98f;
@@ -51,28 +54,45 @@
   --snow-accent: #c98e75;
 }
 
+/* Dark theme — a dedicated earthy palette (deep browns + greens),
+   dark but not pitch black. Unlike light mode, the accent bands go
+   DEEP here (not bright), so text on them flips to light. */
 [data-theme="dark"] {
-  --bg: #29251f;
-  --bg-2: #373129;
-  --paper: #373129;
+  /* surfaces */
+  --bg: #232019;
+  --bg-2: #2d281f;
+  --paper: #332d24;
 
-  --text: #f5ead8;
-  --muted: #c7bbaa;
-  --ink: #f5ead8;
-  --line: #f5ead8;
-  --on-accent: #2f2924;    /* accents stay light → text stays dark */
+  /* ink / text */
+  --text: #ece2d0;
+  --muted: #a99b85;
+  --ink: #ece2d0;
+  --line: #b6a582;         /* soft warm border/shadow (not stark white) */
 
-  --brown: #dfc98f;
+  --on-accent: #f3ecdc;    /* accents are deep now → light text on them */
+  --on-accent-dim: rgba(243, 236, 220, .70);
 
-  --primary: #f5ead8;
-  --primary-ink: #2f2924;
-  --ring: #f5ead8;
-  --snow-beige: #29251f;
-  --snow-brown: #dfc98f;
-  --snow-dark: #f5ead8;
-  --snow-light: #373129;
-  --snow-accent: #d9a6a1;
+  /* deep, earthy accents (brown + green family) */
+  --yellow: #5f5330;       /* header, cards, buttons, badges */
+  --coral:  #6b4a37;       /* page headers (about / blog / contact) */
+  --blue:   #3f504a;       /* home hero, about CTA */
+  --pink:   #684846;       /* footer, stat card */
+  --mint:   #4c5a3f;       /* stat card, success icon */
+  --brown:  #d2b585;       /* links, TOC numbers (reads on dark) */
+
+  /* legacy aliases */
+  --primary: #b6a582;
+  --primary-ink: #ece2d0;
+  --ring: #b6a582;
+  --snow-beige: #232019;
+  --snow-brown: #7d6c44;   /* post badge background (light text on it) */
+  --snow-dark: #ece2d0;
+  --snow-light: #f3ecdc;   /* text on snow-brown badges */
+  --snow-accent: #8ba46f;
 }
+
+/* softer, less muddy grain on the dark palette */
+[data-theme="dark"] .grain { opacity: .15; }
 
 /* ---- Reset / base ----------------------------------------- */
 * { box-sizing: border-box; }
@@ -171,7 +191,7 @@ h1, h2, h3, h4 { color: var(--text); }
   z-index: 1;
 }
 
-.section { margin: 64px; }
+.section { max-width: 1200px; margin: 64px auto; padding: 0 24px; }
 
 .grid {
   display: grid;
@@ -192,7 +212,7 @@ h1, h2, h3, h4 { color: var(--text); }
 }
 
 .nav-shell {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -364,7 +384,7 @@ h1, h2, h3, h4 { color: var(--text); }
 }
 .card .lvl2,
 .card h2, .card h3 { color: var(--on-accent); }
-.card .muted { color: rgba(47,41,36,.7); }
+.card .muted { color: var(--on-accent-dim); }
 
 .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .pill {
@@ -382,10 +402,13 @@ h1, h2, h3, h4 { color: var(--text); }
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: 60px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 72px 64px;
   background: var(--blue);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 72px max(24px, calc((100vw - 1200px) / 2));
 }
 .hero-content { display: flex; flex-direction: column; gap: 20px; max-width: 760px; }
 .hero-title {
@@ -469,7 +492,7 @@ h1, h2, h3, h4 { color: var(--text); }
 .blog-preview-body { flex: 1; margin-bottom: 1rem; }
 .blog-preview-meta {
   display: flex; gap: .5rem; align-items: center; margin-bottom: .5rem;
-  font-size: .8rem; color: rgba(47,41,36,.7);
+  font-size: .8rem; color: var(--on-accent-dim);
 }
 .blog-preview-cat {
   background: var(--paper);
@@ -483,7 +506,7 @@ h1, h2, h3, h4 { color: var(--text); }
 .blog-preview-title { margin: 0 0 .5rem 0; font-size: 1.05rem; line-height: 1.3; }
 .blog-preview-title a { color: var(--on-accent); text-decoration: none; }
 .blog-preview-title a:hover { text-decoration: underline; }
-.blog-preview-excerpt { margin: 0; color: rgba(47,41,36,.75); line-height: 1.5; font-size: .9rem; }
+.blog-preview-excerpt { margin: 0; color: var(--on-accent-dim); line-height: 1.5; font-size: .9rem; }
 
 .read-more {
   font-weight: 700;
@@ -507,8 +530,13 @@ h1, h2, h3, h4 { color: var(--text); }
   grid-column: 1 / -1;
   background: var(--coral);
   color: var(--on-accent);
-  margin: 0 -64px 60px;
-  padding: 68px 64px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 60px;
+  padding: 68px max(24px, calc((100vw - 1200px) / 2));
 }
 .blog-header h1 {
   font-family: 'Archivo Black', Impact, sans-serif;
@@ -636,8 +664,12 @@ h1, h2, h3, h4 { color: var(--text); }
 .about-hero {
   background: var(--coral);
   color: var(--on-accent);
-  margin: 0 -24px;
-  padding: 68px 64px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 68px max(24px, calc((100vw - 1200px) / 2));
 }
 .about-hero-content {
   display: flex;
@@ -718,7 +750,7 @@ h1, h2, h3, h4 { color: var(--text); }
   text-align: center;
 }
 .skill-card .lvl2 { color: var(--on-accent); }
-.skill-card p { color: rgba(47,41,36,.8); }
+.skill-card p { color: var(--on-accent-dim); }
 .skill-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
 .skill-tag {
   background: var(--paper);
@@ -788,7 +820,7 @@ h1, h2, h3, h4 { color: var(--text); }
   text-align: center;
 }
 .fact-card h4 { color: var(--on-accent); margin: 0 0 8px 0; font-size: 18px; }
-.fact-card p { color: rgba(47,41,36,.8); margin: 0; }
+.fact-card p { color: var(--on-accent-dim); margin: 0; }
 
 /* certifications */
 .cert-compact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
@@ -831,8 +863,13 @@ h1, h2, h3, h4 { color: var(--text); }
 .contact-header {
   background: var(--coral);
   color: var(--on-accent);
-  margin: 0 -64px 56px;
-  padding: 68px 64px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 56px;
+  padding: 68px max(24px, calc((100vw - 1200px) / 2));
 }
 .contact-header h1 {
   font-family: 'Archivo Black', Impact, sans-serif;
@@ -941,7 +978,7 @@ h1, h2, h3, h4 { color: var(--text); }
 
 /* ---- Responsive ------------------------------------------- */
 @media (max-width: 860px) {
-  .section { margin: 44px 20px; }
+  .section { margin: 44px auto; padding: 0 20px; }
 
   /* mobile nav: collapse links into a dropdown */
   .nav-links {
@@ -962,12 +999,12 @@ h1, h2, h3, h4 { color: var(--text); }
   .nav-toggle { display: inline-block; }
 
   /* home hero */
-  .hero-section { grid-template-columns: 1fr; gap: 32px; padding: 52px 24px; margin: 0; }
+  .hero-section { grid-template-columns: 1fr; gap: 32px; padding: 52px 24px; }
   .hero-stats { max-width: none; }
 
   /* blog listing */
   .blog-container { grid-template-columns: 1fr; gap: 40px; padding: 0 20px 56px; }
-  .blog-header { margin: 0 -20px 40px; padding: 52px 20px; }
+  .blog-header { margin-bottom: 40px; padding: 52px 20px; }
   .blog-sidebar { position: static; }
 
   /* about */
@@ -990,7 +1027,7 @@ h1, h2, h3, h4 { color: var(--text); }
 
   /* contact */
   .contact-container { padding: 0 20px 56px; }
-  .contact-header { margin: 0 -20px 40px; padding: 52px 20px; }
+  .contact-header { margin-bottom: 40px; padding: 52px 20px; }
   .contact-form { padding: 28px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
 }
@@ -1221,11 +1258,10 @@ h1, h2, h3, h4 { color: var(--text); }
 .content-section code {
   background: var(--bg-2);
   border: 1px solid var(--primary);
-  border-radius: 4px;
   padding: 0.1em 0.4em;
   font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
   font-size: 0.88em;
-  color: var(--snow-brown);
+  color: var(--brown);
 }
 
 .content-section pre {
